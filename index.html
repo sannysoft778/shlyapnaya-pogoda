@@ -6,7 +6,7 @@
 <title>Шляпная погода</title>
 <meta name='description' content='Горный остров, четыре сезона и своя шляпа к каждой погоде.'>
 <meta name='theme-color' content='#0b0c0d'>
-<link rel='preload' href='assets/fonts/manrope-medium.ttf' as='font' type='font/ttf' crossorigin>
+<link rel='preload' href='assets/fonts/manrope-variable.ttf' as='font' type='font/ttf' crossorigin>
 <link rel='stylesheet' href='styles.css'>
 <script>document.documentElement.classList.add('js')</script>
 <script src='app.js' defer></script>
@@ -14,20 +14,20 @@
 <body>
 <div class='stage'>
   <header class='site-top'>
-    <p class='site-top__mark'>Остров сезонов</p>
+    <p class='site-top__mark'>Шляпы для четырёх сезонов</p>
   </header>
 
   <main class='scenes-wrap'>
-    <h1 class='title'><span>Шляпная</span> <span>погода</span></h1>
+    <h1 class='title'><span class='title__name'>Шляпная</span> <span class='title__weather'>погода</span></h1>
 
     <div class='scenes'>
       <section class='scene is-active' id='winter' data-season='winter' aria-labelledby='winter-title'>
         <img class='scene__img' src='assets/keyframes/winter-v6.png' width='1672' height='941' fetchpriority='high' decoding='async' alt='Тёмно-синяя вязаная шапка с молочными цветами над снежным гребнем в пасмурный день'>
         <div class='scene__shade' aria-hidden='true'></div>
         <div class='scene__copy'>
-          <p class='scene__mood'>Тихий снег с утра</p>
-          <h2 class='scene__title' id='winter-title'>Тепло среди снега</h2>
-          <p class='scene__text'>Плотная шерсть и молочные цветы — тепло, когда хребет уходит в облака.</p>
+          <p class='scene__mood'>01 / Зима</p>
+          <h2 class='scene__title' id='winter-title'>Клош из мягкой шерсти</h2>
+          <p class='scene__text'>Тёмно-синяя вязка и три молочных цветка. Маленькое тепло среди большого снега.</p>
         </div>
       </section>
 
@@ -35,9 +35,9 @@
         <img class='scene__img' src='assets/keyframes/autumn-v6.png' width='1672' height='941' decoding='async' alt='Кирпично-красная фетровая шляпа-клош в тихой лесной долине в тёплом боковом свете'>
         <div class='scene__shade' aria-hidden='true'></div>
         <div class='scene__copy'>
-          <p class='scene__mood'>Сухой лист и тёплый свет</p>
-          <h2 class='scene__title' id='autumn-title'>В цвет уходящего солнца</h2>
-          <p class='scene__text'>Мягкий красный фетр и короткий бант — в цвет последних тёплых дней.</p>
+          <p class='scene__mood'>02 / Осень</p>
+          <h2 class='scene__title' id='autumn-title'>Клош из красного фетра</h2>
+          <p class='scene__text'>Мягкая форма, асимметричные поля и аккуратный узел сбоку. Красный в тон осени.</p>
         </div>
       </section>
 
@@ -45,9 +45,9 @@
         <img class='scene__img' src='assets/keyframes/summer-v7.png' width='1672' height='941' decoding='async' alt='Светлая шляпа из рафии с широкими полями и льняной лентой над песчаным берегом спокойного озера'>
         <div class='scene__shade' aria-hidden='true'></div>
         <div class='scene__copy'>
-          <p class='scene__mood'>Полдень у тихой воды</p>
-          <h2 class='scene__title' id='summer-title'>На солнечной стороне</h2>
-          <p class='scene__text'>Светлое плетение и льняная лента: тень на лице, пока песок горячий.</p>
+          <p class='scene__mood'>03 / Лето</p>
+          <h2 class='scene__title' id='summer-title'>Плетёная шляпа из рафии</h2>
+          <p class='scene__text'>Широкие поля и льняная лента песочного цвета. Для долгого дня на солнце.</p>
         </div>
       </section>
 
@@ -55,9 +55,9 @@
         <img class='scene__img' src='assets/keyframes/spring-v6.png' width='1672' height='941' decoding='async' alt='Серо-голубая хлопковая панама в мелкий цветок под редкой сакурой над туманной долиной'>
         <div class='scene__shade' aria-hidden='true'></div>
         <div class='scene__copy'>
-          <p class='scene__mood'>Туман над долиной</p>
-          <h2 class='scene__title' id='spring-title'>Цветы и прохладный воздух</h2>
-          <p class='scene__text'>Прохладный хлопок в мелкий цветок — для первых тёплых дней под сакурой.</p>
+          <p class='scene__mood'>04 / Весна</p>
+          <h2 class='scene__title' id='spring-title'>Панама из хлопка</h2>
+          <p class='scene__text'>Серо-голубая ткань в мелкий цветок, мягкий бант и бронзовая пуговица. Для прохладного утра.</p>
         </div>
       </section>
     </div>
