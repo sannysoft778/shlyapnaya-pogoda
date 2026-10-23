@@ -6,12 +6,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'HatWeather Display';
+  src: url('assets/fonts/hat-weather-display.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: 11 12 13;
   --ivory: #f4f0e6;
   --muted: rgb(244 240 230 / .86);
   --pad: clamp(20px, 6vw, 96px);
   --copy-bottom: clamp(112px, 15vh, 152px);
+  --title-top: clamp(92px, 18vh, 176px);
+  --minimum-scene-height: 560px;
   color-scheme: dark;
 }
 
@@ -104,9 +114,10 @@ button {
 .title {
   position: absolute;
   z-index: 3;
-  top: clamp(92px, 18vh, 176px);
+  top: max(var(--title-top), var(--title-reserve-top, 0px));
   left: var(--pad);
-  max-width: 42vw;
+  max-width: calc(100% - var(--pad) * 2);
+  overflow-wrap: anywhere;
   font-weight: 400;
   font-size: clamp(52px, min(7.4vw, 13vh), 112px);
   line-height: .98;
@@ -118,6 +129,7 @@ button {
 }
 
 .title__weather {
+  font-family: 'HatWeather Display', 'Manrope', 'Segoe UI', Arial, sans-serif;
   margin-top: -.1em;
   font-size: 1.18em;
   font-weight: 800;
@@ -144,7 +156,7 @@ button {
 /* Scenes */
 
 .scene {
-  --s: .5;
+  --s: .32;
   --top: .24;
   position: relative;
   min-height: 100svh;
@@ -153,16 +165,16 @@ button {
 }
 
 .scene[data-season='autumn'] {
-  --s: .5;
+  --s: .28;
 }
 
 .scene[data-season='summer'] {
-  --s: .64;
-  --top: .36;
+  --s: .42;
+  --top: .3;
 }
 
 .scene[data-season='spring'] {
-  --s: .56;
+  --s: .34;
   --top: .3;
 }
 
@@ -188,16 +200,16 @@ button {
     linear-gradient(0deg, rgb(var(--ink) / .5) 0, rgb(var(--ink) / 0) 28%), /* taste-skill-ignore: neutral photo scrim for navigation contrast */
     linear-gradient(90deg, /* taste-skill-ignore: neutral photo scrim for readable typography */
       rgb(var(--ink) / var(--s)) 0,
-      rgb(var(--ink) / calc(var(--s) * .72)) 26%,
-      rgb(var(--ink) / calc(var(--s) * .24)) 44%,
-      rgb(var(--ink) / 0) 58%);
+      rgb(var(--ink) / calc(var(--s) * .76)) 24%,
+      rgb(var(--ink) / calc(var(--s) * .22)) 42%,
+      rgb(var(--ink) / 0) 54%);
 }
 
 .scene__copy {
   position: absolute;
   z-index: 1;
   left: var(--pad);
-  bottom: var(--copy-bottom);
+  bottom: max(var(--copy-bottom), var(--copy-reserve, 0px));
   width: min(30rem, 42vw);
 }
 
@@ -220,7 +232,7 @@ button {
   margin-top: 12px;
   font-size: 17px;
   line-height: 1.55;
-  color: var(--muted);
+  color: var(--ivory);
 }
 
 /* Navigation */
@@ -299,7 +311,7 @@ button {
 
 .js .stage {
   height: 100svh;
-  min-height: 560px;
+  min-height: var(--minimum-scene-height);
   overflow: hidden;
 }
 
@@ -330,11 +342,14 @@ button {
 
 .js:not(.is-ready) .scene, .js.is-instant .scene { transition: none; }
 .status.is-error {
-  position: absolute; z-index: 5; left: var(--pad); bottom: 88px;
-  width: min(32rem, calc(100% - var(--pad) * 2)); height: auto;
+  position: absolute; z-index: 5; left: var(--pad);
+  bottom: max(var(--copy-bottom), var(--copy-reserve, 0px));
+  width: min(30rem, calc(100% - var(--pad) * 2)); height: auto;
   clip: auto; white-space: normal; margin: 0; padding: 12px 16px;
   background: rgb(var(--ink) / .92); color: var(--ivory); font-size: 15px;
 }
+
+.stage:has(.status.is-error) .scene.is-active .scene__copy { visibility: hidden; }
 
 /* If app.js never runs, hash links still reveal their scene */
 .js:not(.is-ready) .scenes:has(.scene:target) .scene {
@@ -354,6 +369,8 @@ button {
   :root {
     --pad: 20px;
     --copy-bottom: calc(136px + env(safe-area-inset-bottom));
+    --title-top: 64px;
+    --minimum-scene-height: 760px;
   }
 
   .site-top {
@@ -361,8 +378,6 @@ button {
   }
 
   .title {
-    top: 64px;
-    max-width: none;
     font-size: clamp(44px, 14vw, 64px);
   }
 
@@ -382,7 +397,7 @@ button {
 
   .scene__shade {
     background: linear-gradient(180deg, /* taste-skill-ignore: neutral scrim protects mobile text without a separate panel */
-      rgb(var(--ink) / calc(var(--s) * .95)) 0,
+      rgb(var(--ink) / max(calc(var(--s) * .95), .42)) 0,
       rgb(var(--ink) / calc(var(--s) * .6)) 16%,
       rgb(var(--ink) / 0) 26%,
       rgb(var(--ink) / 0) calc(var(--mobile-photo-height) * .62),
@@ -419,16 +434,14 @@ button {
     justify-content: space-between;
   }
 
-  .status.is-error { bottom: calc(124px + env(safe-area-inset-bottom)); }
-
   .js .stage {
-    height: max(100svh, 760px);
+    height: max(100svh, var(--minimum-scene-height));
     min-height: 0;
   }
 }
 
 @media (max-width: 380px) {
-  .title { top: 60px; }
+  :root { --title-top: 60px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

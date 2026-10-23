@@ -52,7 +52,6 @@
   const step = (id) => order[(order.indexOf(id) + 1) % order.length];
 
   let current = fromHash() || 'winter';
-  let target = current;
   let intent = 0;
 
   const render = (id, announce) => {
@@ -79,14 +78,12 @@
   // Latest intent wins: a slow decode never overrides a newer choice.
   const go = (id, instant = false) => {
     if (!order.includes(id)) return;
-    target = id;
     const token = ++intent;
     if (id === current) return;
 
     ready(id).then((ok) => {
       if (token !== intent) return;
       if (!ok) {
-        target = current;
         status.textContent = 'Кадр не загрузился. Текущий сезон сохранён. Обновите страницу, чтобы попробовать снова.';
         status.classList.add('is-error');
         return;
@@ -106,14 +103,14 @@
     });
   });
 
-  next.addEventListener('click', (event) => go(step(target), event.detail === 0));
+  next.addEventListener('click', (event) => go(step(current), event.detail === 0));
 
   document.addEventListener('keydown', (event) => {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.target.closest && event.target.closest('input, textarea, select, [contenteditable]')) return;
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      go(step(target), true);
+      go(step(current), true);
     }
   });
 
@@ -124,6 +121,51 @@
 
   render(current, false);
   root.classList.add('is-ready');
+
+  // Let enlarged text extend the stage while keeping the usual composition.
+  const stage = document.querySelector('.stage');
+  const title = document.querySelector('.title');
+  const header = document.querySelector('.site-top');
+  const nav = document.querySelector('.season-nav');
+  const copies = [...scenes.values()].map((scene) => scene.querySelector('.scene__copy'));
+  if (stage && title && header && nav && copies.every(Boolean) &&
+      typeof getComputedStyle === 'function' && typeof requestAnimationFrame === 'function') {
+    let pending = false;
+    const reserve = (name, value) => {
+      const px = Math.ceil(value) + 'px';
+      if (root.style.getPropertyValue(name) !== px) root.style.setProperty(name, px);
+    };
+    const fit = () => {
+      const top = stage.getBoundingClientRect().top;
+      reserve('--title-reserve-top', header.getBoundingClientRect().bottom - top + 12);
+      reserve('--copy-reserve', nav.getBoundingClientRect().height +
+        (parseFloat(getComputedStyle(nav).bottom) || 0) + 24);
+
+      const copyHeight = Math.max(...copies.map((copy) => copy.getBoundingClientRect().height),
+        status.classList.contains('is-error') ? status.getBoundingClientRect().height : 0);
+      const copyBottom = Math.max(...copies.map((copy) => parseFloat(getComputedStyle(copy).bottom) || 0));
+      const minimum = parseFloat(getComputedStyle(root).getPropertyValue('--minimum-scene-height')) || 0;
+      const height = Math.ceil(Math.max(minimum,
+        title.getBoundingClientRect().bottom - top + 48 + copyHeight + copyBottom)) + 'px';
+      if (stage.style.minHeight !== height) stage.style.minHeight = height;
+    };
+    const scheduleFit = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        fit();
+      });
+    };
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(scheduleFit);
+      [title, header, ...copies, nav, status].forEach((node) => observer.observe(node));
+    }
+    window.addEventListener('resize', scheduleFit);
+    document.fonts?.ready?.then(scheduleFit);
+    scheduleFit();
+  }
+
   const initial = current;
   ready(initial).then((ok) => {
     if (!ok && current === initial) {
