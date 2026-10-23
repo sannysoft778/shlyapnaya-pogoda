@@ -1,3 +1,10 @@
 __pycache__/
 *.tmp
 *.log
+.env
+.env.*
+!.env.example
+*-hat-reference.png
+claude-brief.txt
+claude-response.json
+prompts-and-plan.json
