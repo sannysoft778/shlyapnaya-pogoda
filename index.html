@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Шляпная погода</title>
+  <meta name='description' content='Шляпная погода — визуальный маршрут по четырём сезонам, где у каждой погоды своя шляпа.'>
+  <link rel='stylesheet' href='styles.css'>
+  <script src='app.js'></script>
+</head>
+<body>
+  <a class='skip' href='#scenes'>Перейти к сезонам</a>
+
+  <header class='mast'>
+    <div class='mast__brand'>
+      <h1 class='wordmark'><span class='wordmark__light'>Шляпная</span> <span class='wordmark__bold'>погода</span></h1>
+      <p class='mast__lede'>Маршрут по четырём сезонам, где у каждой погоды своя шляпа.</p>
+    </div>
+    <nav class='route' aria-label='Сезоны маршрута'>
+      <ol>
+        <li><a href='#winter' aria-current='true'><span class='route__n'>1</span> <span class='route__name'>Зима</span></a></li>
+        <li><a href='#autumn'><span class='route__n'>2</span> <span class='route__name'>Осень</span></a></li>
+        <li><a href='#summer'><span class='route__n'>3</span> <span class='route__name'>Лето</span></a></li>
+        <li><a href='#spring'><span class='route__n'>4</span> <span class='route__name'>Весна</span></a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main>
+    <div id='scenes' class='scenes' tabindex='-1'>
+      <section class='season is-active' id='winter' aria-labelledby='winter-title'>
+        <div class='season__media'>
+          <img src='assets/keyframes/winter-v5.png' width='1672' height='941' fetchpriority='high' decoding='async' alt='Тёмно-синяя вязаная шляпа-клош с молочными и голубыми цветами парит над заснеженным хребтом; справа сквозь облака пробивается свет.'>
+        </div>
+        <div class='card'>
+          <p class='card__step'><span class='card__name'>Зима</span> <span class='card__count'>1 из 4</span></p>
+          <h2 id='winter-title'>Холод любит глубокий цвет</h2>
+          <p class='card__text'>На высоте звуки становятся тише, а цвета — глубже. Тёмно-синяя вязка, мягкая линия полей и три светлых цветка — маленькое тепло среди большого снега.</p>
+          <p class='card__note'>Тёмно-синяя пряжа · Молочные и ледяно-голубые цветы</p>
+          <a class='next' href='#autumn'>Дальше: осень</a>
+        </div>
+      </section>
+
+      <section class='season' id='autumn' aria-labelledby='autumn-title'>
+        <div class='season__media'>
+          <img src='assets/keyframes/autumn-v5.png' width='1672' height='941' decoding='async' alt='Кирпично-красный фетровый клош парит над осенним лугом в тёплом боковом свете; ниже лежит лесистая долина.'>
+        </div>
+        <div class='card'>
+          <p class='card__step'><span class='card__name'>Осень</span> <span class='card__count'>2 из 4</span></p>
+          <h2 id='autumn-title'>Осень держит тепло</h2>
+          <p class='card__text'>В долине пахнет сухой травой, и день хочется продлить ещё на одну прогулку. Кирпично-красный фетр, короткий бант и мягкая тень под полями — в цвет уходящего солнца.</p>
+          <p class='card__note'>Кирпично-красный фетр · Складной бант</p>
+          <a class='next' href='#summer'>Дальше: лето</a>
+        </div>
+      </section>
+
+      <section class='season' id='summer' aria-labelledby='summer-title'>
+        <div class='season__media'>
+          <img src='assets/keyframes/summer-v5.png' width='1672' height='941' decoding='async' alt='Светлая соломенная шляпа с песочной лентой парит над песчаным берегом озера в солнечный день.'>
+        </div>
+        <div class='card'>
+          <p class='card__step'><span class='card__name'>Лето</span> <span class='card__count'>3 из 4</span></p>
+          <h2 id='summer-title'>Полдень у воды</h2>
+          <p class='card__text'>Тёплый песок под ногами, озеро перед глазами и целый день без планов. Светлая соломка пропускает солнце, широкие поля оставляют немного тени, а льняная лента повторяет цвет берега.</p>
+          <p class='card__note'>Светлая соломка · Льняная лента цвета песка</p>
+          <a class='next' href='#spring'>Дальше: весна</a>
+        </div>
+      </section>
+
+      <section class='season' id='spring' aria-labelledby='spring-title'>
+        <div class='season__media'>
+          <img src='assets/keyframes/spring-v5.png' width='1672' height='941' decoding='async' alt='Сизо-голубая панама с цветочным рисунком и бантом парит над травой; справа вверху цветущие ветки, вдали туманная горная долина.'>
+        </div>
+        <div class='card'>
+          <p class='card__step'><span class='card__name'>Весна</span> <span class='card__count'>4 из 4</span></p>
+          <h2 id='spring-title'>Весна ещё прохладна</h2>
+          <p class='card__text'>Сад уже расцвёл, но утро ещё хранит горный холод. Приглушённый голубой, мелкие цветы и мягкие складки банта — настроение первых прогулок без спешки.</p>
+          <p class='card__note'>Голубая ткань с цветочным рисунком · Бронзовая пуговица</p>
+          <a class='next' href='#winter'>Дальше: снова зима</a>
+        </div>
+      </section>
+    </div>
+    <p id='season-status' class='visually-hidden' role='status' aria-live='polite'></p>
+
+    <section class='about' aria-labelledby='about-title'>
+      <h2 id='about-title'>Маршрут не по календарю</h2>
+      <div class='about__body'>
+        <p>Шляпная погода — прогулка по четырём сезонам. Каждая сцена показывает погоду, свет и шляпу, которая с ними в ладу.</p>
+        <p>Мы идём не по календарю: от зимы к осени, затем к лету и к весне — и снова к зиме. Выберите сезон в меню наверху или нажмите «Дальше» в карточке.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class='colophon'>
+    <p>Шляпная погода</p>
+    <p>Четыре сезона. Один маршрут.</p>
+  </footer>
+</body>
+</html>
