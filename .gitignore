@@ -8,3 +8,4 @@ __pycache__/
 claude-brief.txt
 claude-response.json
 prompts-and-plan.json
+assets/keyframes/*-v1.png
