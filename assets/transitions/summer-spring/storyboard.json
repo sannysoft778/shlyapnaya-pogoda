@@ -1,0 +1,24 @@
+{
+  "id": "summer-spring",
+  "created_on": "2026-10-25",
+  "status": "Concept storyboard only. No video submitted, generated or connected.",
+  "tool": "Built-in Imagegen; no Higgsfield credits spent.",
+  "start_image": "assets/keyframes/summer-v7.png",
+  "end_image": "assets/keyframes/spring-v6.png",
+  "camera": "Forward along a fixed central optical axis with a gentle rise to clear the shore ledge. No lateral truck, orbit, pan, yaw or roll. Nearby objects grow radially outward; distant mountains move minimally.",
+  "frames": [
+    { "src": "assets/transitions/summer-spring/01-over-water.png", "beat": "Advance directly over the shallows. The stationary raffia hat grows and is cropped naturally beyond the right edge; it never flies or changes shape." },
+    { "src": "assets/transitions/summer-spring/02-forest-shore.png", "beat": "Reach a low granite shore ledge and dry uphill conifer corridor straight ahead. Water remains in the summer foreground only; no second lake behind the ledge." },
+    { "src": "assets/transitions/summer-spring/03-pine-occlusion.png", "beat": "Pass very close to soft hanging green pine sprays while gently clearing the ledge. Real defocused foliage occludes the distant scenery and conceals the location/light edit. No sideways trunk curtain, fog or white flash." },
+    { "src": "assets/transitions/summer-spring/04-spring-approach.png", "beat": "Emerge on the cool spring overlook beneath the same cherry branch, with the stationary grey-blue floral hat smaller than its final size. Continue forward into the exact approved spring anchor." }
+  ],
+  "constraints": ["Video is explicitly deferred until a later request", "No changes to existing videos or pilot player", "Lake and sand only in summer", "No lake or water in spring", "No hat morphs, duplicate hats or hats on the ground", "No global sideways sweep, orange HDR treatment, repeating textures or procedural bark"],
+  "realism": "Photographic colour, plausible sun/reflected fill, matte irregular stone and bark, real focus falloff. The soft foliage is an intentional close optical obstruction, not a fog or blur filter.",
+  "limits": "The endpoints are independently generated locations, not a verified shared 3D landscape. A short concealed edit is required. These planning images do not prove continuous video motion; timing and frame seams remain to be checked on a future render. Avoid depicting a kilometre-wide lake crossing in a few seconds.",
+  "prompt_summaries": [
+    "Exact summer anchor after a short forward dolly: central vanishing point and fixed mountains; near water/sand expand toward lower corners, original raffia hat about1.45x and cropped right. Natural sunny exposure, irregular water, no yaw or lateral move.",
+    "Same forward direction at forested summer shore: central low grey granite ledge, left/right irregular conifers, upper-right low pine bough, close water below; dry forest continues uphill behind rock. Matte photographic textures and moderate saturation.",
+    "Closest forward pass: same soft pine sprays now near lens optical height, defocused real needles cover central/upper frame and obscure distant forest/mountain; same grey ledge below. No clear central window, side curtain, fog, HDR or added grain.",
+    "Exact spring anchor viewed from farther back along same axis: original floral grey-blue hat about70percent final width and nearer vanishing point, same snowy skyline and cherry branch. Cool spring light, real grass/petals/stone below, no water or summer hat."
+  ]
+}

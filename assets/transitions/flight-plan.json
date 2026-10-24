@@ -1,5 +1,5 @@
 {
-  "status": "Winter-autumn connected only in pilot.html. Autumn-summer rendered as a separate six-second preview asset with storyboard; not connected to the player. Main page remains still-only.",
+  "status": "Winter-autumn connected only in pilot.html. Autumn-summer rendered separately. Summer-spring has a forward-only concept storyboard; no video submitted. Main page remains still-only.",
   "path_base": "project-root",
   "route": [
     "winter",
@@ -53,12 +53,16 @@
       "to": "spring",
       "start_image": "assets/keyframes/summer-v7.png",
       "end_image": "assets/keyframes/spring-v6.png",
+      "camera_override": "Straight forward along a fixed central optical axis with a gentle rise to clear the shore ledge. No sideways truck, orbit, pan or roll.",
+      "storyboard": "assets/transitions/summer-spring/storyboard.json",
+      "video_status": "Deferred by explicit user request; storyboard images only.",
       "beats": [
-        "Travel along shore leaving raffia hat behind",
-        "Climb away from lake into cool mist",
-        "Reveal cherry branch and spring hat above valley; no lake in spring scene"
+        "Advance directly above the shallows; stationary raffia hat enlarges and passes beyond the right edge through perspective",
+        "Reach the low granite shore ledge and dry uphill forest corridor directly ahead",
+        "Pass close soft pine sprays and stone; physical foreground occlusion hides the location/light edit without fog or lateral wipe",
+        "Emerge at the cool spring overlook; approach the stationary floral hat forward into the exact spring anchor, with no water in spring"
       ],
-      "occlusion": "cool mist"
+      "occlusion": "close pine needles over a low grey rock ledge"
     },
     {
       "id": "spring-winter",
