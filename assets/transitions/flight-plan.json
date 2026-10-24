@@ -1,0 +1,88 @@
+{
+  "status": "Treatment only. No videos generated and no runtime integration enabled.",
+  "path_base": "project-root",
+  "route": [
+    "winter",
+    "autumn",
+    "summer",
+    "spring",
+    "winter"
+  ],
+  "pilot": "winter-autumn",
+  "target_edit_duration_seconds": 3,
+  "direction": "Camera moves forward-left into the landscape and leaves the hat behind the right edge. Natural occlusion conceals the location change. Settle on the next approved still. Never morph hats.",
+  "routes": [
+    {
+      "id": "winter-autumn",
+      "from": "winter",
+      "to": "autumn",
+      "start_image": "assets/keyframes/winter-v6.png",
+      "end_image": "assets/keyframes/autumn-v6.png",
+      "beats": [
+        "0–0.6s: leave snowy ridge and winter hat",
+        "0.6–2.1s: pass through low cloud; cold light becomes warm",
+        "2.1–3s: reveal autumn valley and settle on red cloche"
+      ],
+      "occlusion": "low cloud"
+    },
+    {
+      "id": "autumn-summer",
+      "from": "autumn",
+      "to": "summer",
+      "start_image": "assets/keyframes/autumn-v6.png",
+      "end_image": "assets/keyframes/summer-v7.png",
+      "beats": [
+        "Leave red cloche and descend along slope",
+        "Nearby golden branches briefly cover the frame",
+        "Reveal green forest, lake and sandy shore; settle on raffia hat"
+      ],
+      "occlusion": "golden branches"
+    },
+    {
+      "id": "summer-spring",
+      "from": "summer",
+      "to": "spring",
+      "start_image": "assets/keyframes/summer-v7.png",
+      "end_image": "assets/keyframes/spring-v6.png",
+      "beats": [
+        "Travel along shore leaving raffia hat behind",
+        "Climb away from lake into cool mist",
+        "Reveal cherry branch and spring hat above valley; no lake in spring scene"
+      ],
+      "occlusion": "cool mist"
+    },
+    {
+      "id": "spring-winter",
+      "from": "spring",
+      "to": "winter",
+      "start_image": "assets/keyframes/spring-v6.png",
+      "end_image": "assets/keyframes/winter-v6.png",
+      "beats": [
+        "Rise past cherry branch leaving spring hat behind",
+        "Enter cloud belt",
+        "Emerge at snowy ridge and settle on winter hat"
+      ],
+      "occlusion": "cloud belt"
+    }
+  ],
+  "pilot_prompt": "Use winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. A cinematic camera travels forward and slightly left off the snowy ridge into low cloud. Leave the dark blue knitted hat behind the right edge. Cloud fills the frame to conceal the spatial cut. Warm autumn light reveals the forest valley and original brick-red felt cloche in its approved right-side composition. Ease into a stable final frame. Preserve silhouettes, textiles, colours and proportions. Hats are separate objects in separate scenes; never rotate, stretch or morph them. No text, logos, people, pedestal, water, lake, optical warping, tiling or artificial texture. Target three-second edit; generation duration and model remain to be selected.",
+  "integration_contract": {
+    "trigger": "Next only. Direct menu choice uses the current short still transition.",
+    "layers": "DOM title and menu above one muted playsinline video, approved stills underneath. No text burned into video.",
+    "caption": "Fade out 140ms at departure, restore 180ms after arrival.",
+    "readiness": "Decode target still first. Retain source until first displayed video frame. Preload nearest clip only.",
+    "completion": "Target still behind last video frame. Check the seam visually, then remove video.",
+    "preload_timeout_ms": 500,
+    "fallback": "Unavailable clip, play rejection or playback stall: existing still transition. Target still failure: preserve source and existing error.",
+    "rapid_next": "While waiting, Next keeps meaning the next visible season. Once playing, label it Skip; clicking finishes the active transition. Never queue invisible seasons.",
+    "interruption": "Menu cancels video and uses latest available requested still; no intermediate flights.",
+    "keyboard_and_reduced_motion": "Go directly to target still. Escape/Skip finishes an active flight. Retain control focus and announce only settled season.",
+    "mobile": "Use approved still fallback until a portrait-safe crop is checked. Desktop crop is not assumed safe.",
+    "acceptance": "Pilot winter-autumn: exact still anchors, no hat morph or scenery warp, smooth seam, working skip and slow/offline fallback. Geographical continuity remains unverified until actual video review."
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion"
+  ]
+}

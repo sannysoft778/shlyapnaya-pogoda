@@ -196,6 +196,7 @@ button {
   inset: 0;
   pointer-events: none;
   background:
+    radial-gradient(ellipse 36rem 14rem at 0 calc(100% - var(--copy-bottom) - 40px), rgb(var(--ink) / .52), rgb(var(--ink) / 0)), /* taste-skill-ignore: feathered local scrim protects captions on detailed terrain */
     linear-gradient(180deg, rgb(var(--ink) / var(--top)) 0, rgb(var(--ink) / 0) 18%), /* taste-skill-ignore: neutral photo scrim for header contrast */
     linear-gradient(0deg, rgb(var(--ink) / .5) 0, rgb(var(--ink) / 0) 28%), /* taste-skill-ignore: neutral photo scrim for navigation contrast */
     linear-gradient(90deg, /* taste-skill-ignore: neutral photo scrim for readable typography */
@@ -222,17 +223,19 @@ button {
 .scene__title {
   margin-top: 10px;
   font-weight: 500;
-  font-size: clamp(24px, 2.3vw, 34px);
+  font-size: clamp(25px, 2.4vw, 36px);
   line-height: 1.15;
   letter-spacing: -.02em;
+  text-wrap: balance;
 }
 
 .scene__text {
-  max-width: 34ch;
-  margin-top: 12px;
-  font-size: 17px;
-  line-height: 1.55;
+  max-width: 40ch;
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
   color: var(--ivory);
+  text-wrap: pretty;
 }
 
 /* Navigation */
