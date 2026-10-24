@@ -1,5 +1,5 @@
 {
-  "status": "Winter-autumn connected only in pilot.html. Autumn-summer rendered separately. Summer-spring has a forward-only concept storyboard; no video submitted. Main page remains still-only.",
+  "status": "Winter-autumn connected only in pilot.html. Autumn-summer rendered separately. Revised summer-spring two-shot video rendered separately; not connected. Main page remains still-only.",
   "path_base": "project-root",
   "route": [
     "winter",
@@ -53,16 +53,17 @@
       "to": "spring",
       "start_image": "assets/keyframes/summer-v7.png",
       "end_image": "assets/keyframes/spring-v6.png",
-      "camera_override": "Straight forward along a fixed central optical axis with a gentle rise to clear the shore ledge. No sideways truck, orbit, pan or roll.",
+      "camera_override": "Short forward travel with an upward rise at the existing summer near shore. Locked heading and fixed lens; no turn towards the right-hand forest. The stationary raffia hat drops out through perspective as the camera rises. A close overhead pine branch fills the lens, then a concealed cut reveals the spring scene and forward approach.",
       "storyboard": "assets/transitions/summer-spring/storyboard.json",
-      "video_status": "Deferred by explicit user request; storyboard images only.",
+      "video_status": "Generated as two3-second segments joined under a close overhead pine branch; parent and independent review GO for pilot preview. Not connected.",
       "beats": [
-        "Advance directly above the shallows; stationary raffia hat enlarges and passes beyond the right edge through perspective",
-        "Reach the low granite shore ledge and dry uphill forest corridor directly ahead",
-        "Pass close soft pine sprays and stone; physical foreground occlusion hides the location/light edit without fog or lateral wipe",
-        "Emerge at the cool spring overlook; approach the stationary floral hat forward into the exact spring anchor, with no water in spring"
+        "Summer near-shore departure with upward/forward camera motion; overhead pine enters from the top.",
+        "Fully covered pine foreground hides the cut at3.0s.",
+        "Move past pine sprays to reveal cool spring valley and stationary floral panama; continue forward into the approved spring image."
       ],
-      "occlusion": "close pine needles over a low grey rock ledge"
+      "occlusion": "near-lens overhead pine branch, explicit common first/end frame",
+      "video": "assets/transitions/summer-spring-1440p.mp4",
+      "duration_seconds": 6.041666666666667
     },
     {
       "id": "spring-winter",

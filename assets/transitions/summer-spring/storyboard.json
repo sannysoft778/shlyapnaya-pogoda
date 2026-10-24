@@ -1,24 +1,133 @@
 {
   "id": "summer-spring",
   "created_on": "2026-10-25",
-  "status": "Concept storyboard only. No video submitted, generated or connected.",
-  "tool": "Built-in Imagegen; no Higgsfield credits spent.",
+  "status": "GO for the next pilot preview after parent and independent frame review. Revised two-shot video rendered, archived and assembled. Not connected to a player.",
+  "tool": "Built-in Imagegen for planning stills and revised bridge; Kling4.0 for video.",
   "start_image": "assets/keyframes/summer-v7.png",
   "end_image": "assets/keyframes/spring-v6.png",
-  "camera": "Forward along a fixed central optical axis with a gentle rise to clear the shore ledge. No lateral truck, orbit, pan, yaw or roll. Nearby objects grow radially outward; distant mountains move minimally.",
-  "frames": [
-    { "src": "assets/transitions/summer-spring/01-over-water.png", "beat": "Advance directly over the shallows. The stationary raffia hat grows and is cropped naturally beyond the right edge; it never flies or changes shape." },
-    { "src": "assets/transitions/summer-spring/02-forest-shore.png", "beat": "Reach a low granite shore ledge and dry uphill conifer corridor straight ahead. Water remains in the summer foreground only; no second lake behind the ledge." },
-    { "src": "assets/transitions/summer-spring/03-pine-occlusion.png", "beat": "Pass very close to soft hanging green pine sprays while gently clearing the ledge. Real defocused foliage occludes the distant scenery and conceals the location/light edit. No sideways trunk curtain, fog or white flash." },
-    { "src": "assets/transitions/summer-spring/04-spring-approach.png", "beat": "Emerge on the cool spring overlook beneath the same cherry branch, with the stationary grey-blue floral hat smaller than its final size. Continue forward into the exact approved spring anchor." }
+  "camera": "Short forward travel with an upward rise at the existing summer near shore. Locked heading and fixed lens; no turn towards the right-hand forest. The stationary raffia hat drops out through perspective as the camera rises. A close overhead pine branch fills the lens, then a concealed cut reveals the spring scene and forward approach.",
+  "constraints": [
+    "Keep approved summer and spring still anchors",
+    "No changes to the existing videos or pilot player",
+    "Lake and sand only in summer",
+    "No water in the spring reveal",
+    "Stationary hats; no duplicate or transformed hats",
+    "No lateral camera tracking or heading turn; upward camera travel is intentional"
   ],
-  "constraints": ["Video is explicitly deferred until a later request", "No changes to existing videos or pilot player", "Lake and sand only in summer", "No lake or water in spring", "No hat morphs, duplicate hats or hats on the ground", "No global sideways sweep, orange HDR treatment, repeating textures or procedural bark"],
   "realism": "Photographic colour, plausible sun/reflected fill, matte irregular stone and bark, real focus falloff. The soft foliage is an intentional close optical obstruction, not a fog or blur filter.",
-  "limits": "The endpoints are independently generated locations, not a verified shared 3D landscape. A short concealed edit is required. These planning images do not prove continuous video motion; timing and frame seams remain to be checked on a future render. Avoid depicting a kilometre-wide lake crossing in a few seconds.",
-  "prompt_summaries": [
-    "Exact summer anchor after a short forward dolly: central vanishing point and fixed mountains; near water/sand expand toward lower corners, original raffia hat about1.45x and cropped right. Natural sunny exposure, irregular water, no yaw or lateral move.",
-    "Same forward direction at forested summer shore: central low grey granite ledge, left/right irregular conifers, upper-right low pine bough, close water below; dry forest continues uphill behind rock. Matte photographic textures and moderate saturation.",
-    "Closest forward pass: same soft pine sprays now near lens optical height, defocused real needles cover central/upper frame and obscure distant forest/mountain; same grey ledge below. No clear central window, side curtain, fog, HDR or added grain.",
-    "Exact spring anchor viewed from farther back along same axis: original floral grey-blue hat about70percent final width and nearer vanishing point, same snowy skyline and cherry branch. Cool spring light, real grass/petals/stone below, no water or summer hat."
-  ]
+  "limits": "The two approved endpoints are separate generated locations. This is a cinematic edit concealed by foliage, not a verified continuous geographical route or reconstructed3D camera. Final site seams, playback and cropping remain to be checked during later integration.",
+  "original_concept": {
+    "status": "Superseded route, retained for comparison. Open water is ahead of the summer anchor; reaching the right-side forest without turning or inventing land was spatially inconsistent. These images are concepts, not extracted video frames.",
+    "frames": [
+      {
+        "src": "assets/transitions/summer-spring/01-over-water.png",
+        "beat": "Advance directly over the shallows. The stationary raffia hat grows and is cropped naturally beyond the right edge; it never flies or changes shape."
+      },
+      {
+        "src": "assets/transitions/summer-spring/02-forest-shore.png",
+        "beat": "Reach a low granite shore ledge and dry uphill conifer corridor straight ahead. Water remains in the summer foreground only; no second lake behind the ledge."
+      },
+      {
+        "src": "assets/transitions/summer-spring/03-pine-occlusion.png",
+        "beat": "Pass very close to soft hanging green pine sprays while gently clearing the ledge. Real defocused foliage occludes the distant scenery and conceals the location/light edit. No sideways trunk curtain, fog or white flash."
+      },
+      {
+        "src": "assets/transitions/summer-spring/04-spring-approach.png",
+        "beat": "Emerge on the cool spring overlook beneath the same cherry branch, with the stationary grey-blue floral hat smaller than its final size. Continue forward into the exact approved spring anchor."
+      }
+    ]
+  },
+  "revised_bridge": {
+    "src": "assets/transitions/summer-spring/05-overhead-pine-cover.png",
+    "role": "Explicit common end/start image for the two video segments.",
+    "image_tool": "Built-in Imagegen; no Higgsfield image credits.",
+    "prompt": "Correct the close pine photograph so soft irregular hanging pine sprays fill every corner, including the bottom. Remove visible rock, ground, sky and distant scenery. A real lateral overhanging branch with natural near-lens optical defocus; no vertical sapling, hat, water, fog, radial zoom blur, tiling or text.",
+    "geometry": "A nearby branch initially above the top edge can enter view during the camera rise. This is an offscreen spatial assumption, not a claim that a new forest shore exists ahead in the lake."
+  },
+  "video": {
+    "model": "kling4_0",
+    "generation_mode": "image-to-video with explicit first/end media per part",
+    "resolution": "1080p",
+    "parts": [
+      {
+        "src": "assets/transitions/masters/summer-spring-part-01-source.mp4",
+        "bytes": 10637407,
+        "sha256": "64c410c8b69b37b4846f476cb69707fa0be13696218af59b2892cd22dd22dde4",
+        "frames": 73
+      },
+      {
+        "src": "assets/transitions/masters/summer-spring-part-02-source.mp4",
+        "bytes": 8116732,
+        "sha256": "aa7768b8a53fd5d338a33b72f247eba3822ae01453379ff1ef87f0c8f0b678c5",
+        "frames": 73
+      }
+    ],
+    "source_width": 1916,
+    "source_height": 1080,
+    "fps": 24,
+    "frame_count": 145,
+    "duration_seconds": 6.041666666666667,
+    "estimated_credits_selected_parts": 6,
+    "estimated_credits_rejected_attempts": 16,
+    "estimated_credits_total": 22,
+    "silent_1080p": "assets/transitions/summer-spring-1080p.mp4",
+    "silent_qhd": "assets/transitions/summer-spring-1440p.mp4",
+    "assembly": "Join the two clips at the common fully pine-occluded image; remove the duplicate first-part endpoint, retime uniformly to 24fps, H.264 all-intra, yuv420p, faststart, no audio stream.",
+    "qhd": "Local FFmpeg Lanczos resampling to 2560x1440, not native additional detail; no cloud upscale credits.",
+    "outputs": [
+      {
+        "src": "assets/transitions/summer-spring-1080p.mp4",
+        "bytes": 12302762,
+        "sha256": "3e97333a0475ab40bb1aa2dcb0b751939de977edc0e801a2e4b3defce6d3061d",
+        "frames": 145,
+        "silent": true
+      },
+      {
+        "src": "assets/transitions/summer-spring-1440p.mp4",
+        "bytes": 19062457,
+        "sha256": "abe1b142e2672445f5eb0c0e15c4304ad809c8d5fe114c2f8ed87b29cb0a88e4",
+        "frames": 145,
+        "silent": true
+      }
+    ],
+    "prompts": [
+      "Immediately begin a short STRAIGHT FORWARD camera glide with a smooth upward rise beneath an EXISTING low pine branch overhanging from the right shore, initially just ABOVE the top frame edge. Keep a fixed heading and fixed28mm lens: the distant mountain keeps its upper-right bearing. The stationary raffia hat enlarges and leaves beyond the right edge by parallax. Close soft hanging needles enter from the TOP as the camera rises, then fill the entire lens into the exact supplied end image. Pass beside the thick branch, never through its wood. Remain at the original near shore; the lake, beach and distant banks retain their geography. No new land, rock, island, upright sapling, hat motion, sideways tracking, yaw, fog or dissolve. Natural photographic light.",
+      "Continue a smooth STRAIGHT FORWARD camera glide from the exact fully pine-occluded first frame. The same close, defocused PINE needles expand naturally past the frame edges and clear the lens within0.7seconds, revealing the spring scene ALREADY behind them. Pine stays pine until out of view; cherry blossoms are separate stationary branches behind it. The floral panama is already hovering stationary ahead-right; continue forward to approach it, then decelerate smoothly into the exact supplied final composition. Fixed28mm lens, locked heading, level horizon and natural cool spring light. Preserve the panama silhouette, floral print, bow and medallion. No new lake, summer scenery, sideways tracking, yaw, rotating hat, morphing needles, fog or dissolve."
+    ]
+  },
+  "review": {
+    "result": "GO for pilot preview. No mandatory visual blockers found by parent and independent reviewer.",
+    "rejected_attempts": [
+      {
+        "attempt": 1,
+        "duration_seconds": 8,
+        "estimated_credits": 8,
+        "source": "assets/transitions/masters/summer-spring-attempt-01-source.mp4",
+        "reason": "Camera yaws right towards the shore around2.7–4.7s; violates requested forward direction."
+      },
+      {
+        "attempt": 2,
+        "duration_seconds": 8,
+        "estimated_credits": 8,
+        "source": "assets/transitions/masters/summer-spring-attempt-02-source.mp4",
+        "reason": "Yaw fixed, but an isolated rock and upright pine shoot appear in the open lake around2.5–4.25s. No credible forest approach."
+      }
+    ],
+    "beats": [
+      "Summer near-shore departure with upward/forward camera motion; overhead pine enters from the top.",
+      "Fully covered pine foreground hides the cut at3.0s.",
+      "Move past pine sprays to reveal cool spring valley and stationary floral panama; continue forward into the approved spring image."
+    ],
+    "differences_from_original_concept": "No traverse across the lake and no central forest ledge/corridor. The transition happens beside an assumed close overhanging branch at the original near shore.",
+    "concepts_vs_frames": "Planning stills remain separate from actual video QA frames; ordered middle-frame adherence was not established by either rejected render.",
+    "checked": "Both sources, large final-assembly frames, and every frame at24fps from2.708–3.375s around the join.",
+    "findings": [
+      "0–1.3s: forward/upward departure. Distant mountains retain their bearing; the stationary summer hat leaves below through the camera rise, without independent flight or rotation.",
+      "About0.8–2.6s: an overhanging pine branch enters from above and approaches. No new forest ledge, rock island, upright shoot or noticeable yaw.",
+      "2.6–3.4s: dense near-lens pine hides the location and the join near3.0s. No observed geometry jump at the join.",
+      "3.4–4.5s: pine moves towards the edges, revealing the cool spring valley. Cherry blossom remains a separate background branch; no observed needle-to-flower morph.",
+      "4.5–6.04s: stable forward approach to the floral panama. Silhouette, print, bow and medallion remain stable; no lake or sand in spring; final framing matches the spring anchor visually."
+    ],
+    "remaining_limit": "Slight slowdown around2.9–3.1s in the dense pine; nearest needle clusters look soft and retain a mildly generative character. This is not claimed as indistinguishable from live-action footage. Later player integration still needs a real playback/scroll and still-seam review."
+  }
 }
