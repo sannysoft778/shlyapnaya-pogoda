@@ -1,0 +1,37 @@
+{
+  "id": "autumn-summer",
+  "status": "Three intermediate concept images prepared with built-in Imagegen, followed by one completed Kling 4.0 six-second video. Independent frame review: suitable for pilot; existing site and winter-autumn pilot unchanged.",
+  "created_on": "2026-10-25",
+  "start_image": "assets/keyframes/autumn-v6.png",
+  "end_image": "assets/keyframes/summer-v7.png",
+  "duration_seconds": 6,
+  "image_tool": "Built-in Imagegen; no Higgsfield image credits spent.",
+  "video": {
+    "model": "kling4_0", "resolution": "1080p", "count": 1, "estimated_credits": 6,
+    "source_width": 1916, "source_height": 1080, "fps": 24, "frame_count": 145,
+    "duration_seconds": 6.041667,
+    "silent_1080p": "assets/transitions/autumn-summer-1080p.mp4",
+    "silent_qhd": "assets/transitions/autumn-summer-1440p.mp4",
+    "encoding": "Local H.264 all-intra, yuv420p, faststart; no audio stream.",
+    "qhd": "Local Lanczos resampling to 2560x1440, no cloud upscale credits or claim of native extra detail."
+  },
+  "review": {
+    "result": "GO for pilot. Actual camera travel with layered parallax; no noticeable hat morph, foliage/bark melting or slide zoom.",
+    "beats": ["0–1.55s: red cloche left behind beyond right edge", "1.6–3.25s: fast forward travel through the autumn forest", "3.35–4.35s: the opaque trunk edge conceals the location/season edit as a moving physical curtain", "Around3.5s: sunny lake and sand revealed; around4s: summer hat enters view", "4.4–6s: stable summer hat and sunny green shoreline"],
+    "differences_from_plan": "Trunk edge hides the edit without covering the entire lens at once. It reveals the open summer beach directly, without a separate flight through green summer woodland.",
+    "concept_images": "These are generated planning images supplied to the video request, not frames extracted from the resulting video. Actual intermediate framing varies."
+  },
+  "frames": [
+    { "time_seconds": 1.4, "src": "assets/transitions/autumn-summer/01-autumn-forest-v2.png", "description": "Camera enters the same golden autumn larch forest. Red cloche is left beyond the right edge. No lake or beach." },
+    { "time_seconds": 2.8, "src": "assets/transitions/autumn-summer/02-tree-pass-v2.png", "description": "Close foreground trunk and branches occlude the lens and hide the season/location edit. No fog or visible leaf transformation." },
+    { "time_seconds": 4.4, "src": "assets/transitions/autumn-summer/03-summer-lake-v2.png", "description": "Exit from green forest to the sunny blue summer lake and pale sand. Summer hat remains beyond the right edge until final approach." }
+  ],
+  "realism": "Muted natural autumn colour, restrained highlights, real thin flaky larch bark, irregular water ripples and realistic near/far focus falloff. No grain overlays, HDR microcontrast, repeated textures, fog, magic particles or hat morphs.",
+  "invariants": ["Approved winter-autumn pilot unchanged", "Exact approved autumn start and summer end hats", "No water or beach in autumn", "Clear sunny daylight and green forest only after the concealed edit", "Hats remain stationary and never transform into one another"],
+  "image_prompt_summaries": [
+    "Autumn intermediate: retain exact viewpoint, foreground trunks, flight corridor and valley; reduce excessive orange/yellow saturation, match natural larch needles in muted straw, ochre, copper and remaining green. Credible upper-right autumn sun, cool indirect shadows, restrained highlights, organic nonrepeating bark/rocks, 28mm f/5.6 photographic depth. No water, beach, hat, fog, CGI/HDR, sharpen halos, noise or filters.",
+    "Tree-pass intermediate: retain physical central/right trunk occlusion from the preceding forest. Match its muted natural light. Thin flaky grey-brown larch bark with modest irregular fissures, gentle microcontrast and near-camera defocus, natural autumn branches in the left gap. No giant rocky bark relief, glowing edges, tiled textures, lake, hat, fog or morph.",
+    "Summer intermediate: retain approved lake mountain skyline and shoreline with cropped green trunk/boughs at the right, bright sunny summer and pale sand. Match summer-v7 tonal/detail character; irregular low-amplitude perspective-correct water ripples, restrained glints, real sand and natural depth-of-field falloff. No autumn leaves, visible hat, procedural gravel, tiled waves, HDR or filters."
+  ],
+  "references": ["https://open.higgsfield.ai/models/kling-video/v4.0/image-to-video/api-reference"]
+}
