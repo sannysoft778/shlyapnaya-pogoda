@@ -1,0 +1,10 @@
+{
+  "id": "winter-autumn",
+  "from": "winter",
+  "to": "autumn",
+  "enabled": false,
+  "src": null,
+  "mobile_ready": false,
+  "start_image": "assets/keyframes/winter-v6.png",
+  "end_image": "assets/keyframes/autumn-v6.png"
+}

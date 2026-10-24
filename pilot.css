@@ -1,0 +1,88 @@
+/* The approved composition and brand typography come from styles.css. */
+.pilot .site-top {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pilot-note {
+  max-width: 100%;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pilot-note > p:first-child { display: inline; margin-right: 8px; color: var(--ivory); }
+.pilot-status { display: inline; }
+.pilot-status { color: var(--muted); }
+.pilot-status.is-error { color: var(--ivory); }
+
+/* Still changes remain instant. Only a real video can supply camera motion. */
+.js .pilot .scene,
+.js .pilot .scene.is-active { transition: none; }
+
+.pilot-video,
+.pilot-video-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pilot-video {
+  display: block;
+  object-fit: cover;
+  object-position: 72% 50%;
+}
+
+.pilot-video-shade { --s: .32; --top: .24; }
+.pilot-video.is-visible,
+.pilot-video-shade.is-visible { opacity: 1; }
+
+.pilot-copy {
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.pilot-copy.is-hidden {
+  opacity: 0;
+  transition-duration: 140ms;
+}
+
+.pilot-actions { display: flex; align-items: center; gap: 16px; }
+.pilot-reset {
+  min-width: 44px;
+  min-height: 48px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.pilot button[aria-disabled='true'] { opacity: .55; cursor: default; }
+.pilot .next[aria-disabled='true'] .next__arrow { visibility: hidden; }
+.pilot-noscript { position: relative; z-index: 5; padding: 20px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .pilot-reset:hover:not([aria-disabled='true']) { color: #fff; }
+  .pilot .next[aria-disabled='true']:hover { background: var(--ivory); }
+}
+
+@media (max-width: 700px), (max-aspect-ratio: 4/5) {
+  .pilot .season-nav__list { justify-content: flex-start; gap: 8px; }
+  .pilot-actions { justify-content: space-between; }
+  .pilot-actions .next { flex: 1; }
+  .pilot-video { height: min(100%, 170vw); object-position: 86% 50%; }
+  .pilot-video-shade { --mobile-photo-height: min(100%, 170vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pilot-copy { transition: none; }
+}
+
+.js.is-instant .pilot-copy { transition: none; }

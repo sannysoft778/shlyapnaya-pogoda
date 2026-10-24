@@ -9,7 +9,16 @@
     "winter"
   ],
   "pilot": "winter-autumn",
-  "target_edit_duration_seconds": 3,
+  "target_edit_duration_seconds": 4,
+  "preferred_pilot_model": {
+    "model": "kling4_0",
+    "mode": "image-to-video",
+    "duration": 4,
+    "resolution": "1080p",
+    "estimated_credits": 4,
+    "checked_on": "2026-10-24",
+    "status": "Prepared and quoted with both approved images; not generated. Quality remains untested."
+  },
   "direction": "Camera moves forward-left into the landscape and leaves the hat behind the right edge. Natural occlusion conceals the location change. Settle on the next approved still. Never morph hats.",
   "routes": [
     {
@@ -19,9 +28,9 @@
       "start_image": "assets/keyframes/winter-v6.png",
       "end_image": "assets/keyframes/autumn-v6.png",
       "beats": [
-        "0–0.6s: leave snowy ridge and winter hat",
-        "0.6–2.1s: pass through low cloud; cold light becomes warm",
-        "2.1–3s: reveal autumn valley and settle on red cloche"
+        "0–1s: leave snowy ridge and winter hat entirely beyond the right edge",
+        "1–2.2s: enter opaque cloud and hide the cut; cold light becomes warm",
+        "2.2–4s: reveal autumn valley then red cloche, settle and hold the exact end frame"
       ],
       "occlusion": "low cloud"
     },
@@ -65,7 +74,7 @@
       "occlusion": "cloud belt"
     }
   ],
-  "pilot_prompt": "Use winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. A cinematic camera travels forward and slightly left off the snowy ridge into low cloud. Leave the dark blue knitted hat behind the right edge. Cloud fills the frame to conceal the spatial cut. Warm autumn light reveals the forest valley and original brick-red felt cloche in its approved right-side composition. Ease into a stable final frame. Preserve silhouettes, textiles, colours and proportions. Hats are separate objects in separate scenes; never rotate, stretch or morph them. No text, logos, people, pedestal, water, lake, optical warping, tiling or artificial texture. Target three-second edit; generation duration and model remain to be selected.",
+  "pilot_prompt": "Create a four-second cinematic transition using winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. 0–1s: camera moves forward-left into the snowy valley; the stationary blue hat passes completely beyond the right edge without changing shape. 1–1.8s: enter low cloud. 1.8–2.2s: opaque cloud covers the whole frame and conceals a cut to the separate autumn location while keeping apparent forward momentum. 2.2–3.6s: reveal the warm autumn valley first, then uncover the stationary original red cloche in its approved right-side position. Decelerate and hold the exact autumn composition from3.6–4s. Preserve silhouettes, materials, colours and decorations. Never show both hats together, morph, rotate, duplicate or ground them. No visible landscape melting, optical distortion, added objects or text.",
   "integration_contract": {
     "trigger": "Next only. Direct menu choice uses the current short still transition.",
     "layers": "DOM title and menu above one muted playsinline video, approved stills underneath. No text burned into video.",

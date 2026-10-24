@@ -1,0 +1,63 @@
+{
+  "checked_on": "2026-10-24",
+  "service": "Connected Higgsfield workspace",
+  "unit": "credits",
+  "status": "Estimates only; no generation submitted",
+  "requirement": "Two approved start/end frames; one approximately four-second landscape transition. Quality remains untested.",
+  "recommendation": {
+    "model": "kling4_0",
+    "mode": "image-to-video",
+    "duration": 4,
+    "resolution": "1080p",
+    "estimated_credits": 4,
+    "inputs": "Estimate rechecked with confirmed winter and autumn image references."
+  },
+  "alternatives": [
+    {
+      "model": "kling3_0",
+      "mode": "pro",
+      "duration": 4,
+      "estimated_credits": 7
+    },
+    {
+      "model": "minimax_h3",
+      "duration": 5,
+      "resolution": "2K",
+      "estimated_credits": 10,
+      "note": "Public Higgsfield page and API say minimum five seconds; catalog and estimator also offer four seconds, so use conservative five-second comparison."
+    },
+    {
+      "model": "seedance1_5",
+      "duration": 4,
+      "resolution": "1080p",
+      "generate_audio": false,
+      "estimated_credits": 12
+    },
+    {
+      "model": "gemini_omni_flash_1_1",
+      "mode": "image-to-video",
+      "duration": 4,
+      "resolution": "1080p",
+      "estimated_credits": 18
+    },
+    {
+      "model": "seedance_2_0",
+      "duration": 4,
+      "resolution": "1080p",
+      "generate_audio": false,
+      "estimated_credits": 48
+    }
+  ],
+  "notes": [
+    "All figures are current tool estimates, not guaranteed future prices. No dollars-to-credits conversion is assumed.",
+    "Kling4's live workspace estimate is lower than the public blog's standard rates. Official changelog announces a temporary launch discount, but the exact reason for this workspace quote is unverified.",
+    "Kling4 supports first/end frames in official image-to-video documentation. This proves control availability, not successful hat preservation.",
+    "Gemini Omni Flash1.1 360p draft is also four credits for four seconds; the current K4 quote makes that draft less useful for this pilot.",
+    "Four successful four-second K4 clips at the current estimate would total sixteen credits, excluding retries and any price changes."
+  ],
+  "sources": [
+    "https://higgsfield.ai/creator-hub/changelog",
+    "https://open.higgsfield.ai/models/kling-video/v4.0/image-to-video/api-reference",
+    "https://higgsfield.ai/blog/kling-4-0-on-higgsfield"
+  ]
+}
