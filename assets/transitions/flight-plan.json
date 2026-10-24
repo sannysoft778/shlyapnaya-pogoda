@@ -1,5 +1,5 @@
 {
-  "status": "Treatment only. No videos generated and no runtime integration enabled.",
+  "status": "One experimental winter-autumn clip generated and connected only in pilot.html. Main page remains still-only.",
   "path_base": "project-root",
   "route": [
     "winter",
@@ -16,8 +16,8 @@
     "duration": 4,
     "resolution": "1080p",
     "estimated_credits": 4,
-    "checked_on": "2026-10-24",
-    "status": "Prepared and quoted with both approved images; not generated. Quality remains untested."
+    "checked_on": "2026-10-25",
+    "status": "One 4-second 1080p generation completed after user approval; live preflight quoted 4 credits."
   },
   "direction": "Camera moves forward-left into the landscape and leaves the hat behind the right edge. Natural occlusion conceals the location change. Settle on the next approved still. Never morph hats.",
   "routes": [
@@ -76,22 +76,38 @@
   ],
   "pilot_prompt": "Create a four-second cinematic transition using winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. 0–1s: camera moves forward-left into the snowy valley; the stationary blue hat passes completely beyond the right edge without changing shape. 1–1.8s: enter low cloud. 1.8–2.2s: opaque cloud covers the whole frame and conceals a cut to the separate autumn location while keeping apparent forward momentum. 2.2–3.6s: reveal the warm autumn valley first, then uncover the stationary original red cloche in its approved right-side position. Decelerate and hold the exact autumn composition from3.6–4s. Preserve silhouettes, materials, colours and decorations. Never show both hats together, morph, rotate, duplicate or ground them. No visible landscape melting, optical distortion, added objects or text.",
   "integration_contract": {
-    "trigger": "Next only. Direct menu choice uses the current short still transition.",
+    "trigger": "Pilot: forward vertical wheel seeks a paused clip; button plays the remaining flight. Main site keeps existing still navigation.",
     "layers": "DOM title and menu above one muted playsinline video, approved stills underneath. No text burned into video.",
     "caption": "Fade out 140ms at departure, restore 180ms after arrival.",
     "readiness": "Decode target still first. Retain source until first displayed video frame. Preload nearest clip only.",
     "completion": "Target still behind last video frame. Check the seam visually, then remove video.",
     "preload_timeout_ms": 500,
-    "fallback": "Unavailable clip, play rejection or playback stall: existing still transition. Target still failure: preserve source and existing error.",
-    "rapid_next": "While waiting, Next keeps meaning the next visible season. Once playing, label it Skip; clicking finishes the active transition. Never queue invisible seasons.",
+    "fallback": "Auto failure uses the decoded autumn still. Initial scrub failure retains winter and offers the still via the button. No reverse flight.",
+    "rapid_next": "Loading retains accumulated wheel input. Button during scrub continues; during auto playback it skips. No invisible seasons are queued.",
     "interruption": "Menu cancels video and uses latest available requested still; no intermediate flights.",
     "keyboard_and_reduced_motion": "Go directly to target still. Escape/Skip finishes an active flight. Retain control focus and announce only settled season.",
     "mobile": "Use approved still fallback until a portrait-safe crop is checked. Desktop crop is not assumed safe.",
-    "acceptance": "Pilot winter-autumn: exact still anchors, no hat morph or scenery warp, smooth seam, working skip and slow/offline fallback. Geographical continuity remains unverified until actual video review."
+    "acceptance": "Pilot winter-autumn: exact still anchors, no hat morph or scenery warp, smooth seam, working skip and slow/offline fallback. Geographical continuity remains unverified until actual video review.",
+    "scrub_readiness_timeout_ms": 2000,
+    "audio": "Separate opt-in local wind track from the user-supplied island reference, quiet gain with 60ms rise and 100ms fall; pauses when camera motion stops."
   },
   "references": [
     "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play",
     "https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback",
     "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion"
-  ]
+  ],
+  "pilot_files": {
+    "source": {
+      "model": "kling4_0",
+      "width": 1916,
+      "height": 1080,
+      "fps": 24,
+      "video_frames": 97
+    },
+    "web": "assets/transitions/winter-autumn-1440p.mp4",
+    "alternate": "assets/transitions/winter-autumn-1080p.mp4",
+    "encoding": "H.264, all-intra, yuv420p, faststart, no audio stream",
+    "upscale": "Local FFmpeg Lanczos to 2560x1440. Resampling, not native 1440p or generated extra detail. No cloud upscale credits.",
+    "audio": "assets/audio/flight-air.mp3"
+  }
 }

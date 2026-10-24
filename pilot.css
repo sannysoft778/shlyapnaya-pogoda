@@ -86,3 +86,37 @@
 }
 
 .js.is-instant .pilot-copy { transition: none; }
+
+.pilot-topline { display: flex; align-items: center; gap: 16px; max-width: 100%; }
+.pilot .site-top__mark { min-width: 0; }
+.pilot-hint { margin-top: 4px; color: var(--ivory); }
+.pilot-progress { display: inline-block; margin-left: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pilot-sound {
+  flex: none;
+  min-height: 44px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--ivory);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pilot-sound:hover { color: #fff; }
+}
+
+/* A still-only phone needs no dormant flight or sound controls in its header. */
+.pilot-mobile-note { display: none; }
+.pilot.is-photo-only .pilot-sound { display: none; }
+
+@media (max-width: 700px), (max-aspect-ratio: 4/5) {
+  .pilot.is-photo-only .site-top { gap: 0; }
+  .pilot.is-photo-only .pilot-note { display: none; }
+  .pilot.is-photo-only .pilot-mobile-note {
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--muted);
+  }
+}

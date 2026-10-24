@@ -13,14 +13,19 @@
 <script>document.documentElement.classList.add('js')</script>
 <script type='module' src='pilot-player.mjs'></script>
 </head>
-<body class='pilot'>
+<body class='pilot is-photo-only'>
 <div class='stage'>
   <header class='site-top'>
-    <p class='site-top__mark'>Шляпы для четырёх сезонов</p>
+    <div class='pilot-topline'>
+      <p class='site-top__mark'>Шляпы для четырёх сезонов</p>
+      <button class='pilot-sound' type='button' aria-pressed='false' aria-label='Звук воздуха'>Звук: выкл.</button>
+    </div>
     <div class='pilot-note'>
       <p>Пробный перелёт</p>
       <p class='pilot-status'>Ролик ещё не подключён</p>
+      <p class='pilot-hint'><span class='pilot-hint__text'>Крутите колесо вперёд или нажмите «К осени».</span> <output class='pilot-progress' aria-label='Ход перелёта' aria-live='off'>На старте · 0%</output></p>
     </div>
+    <p class='pilot-mobile-note'>На телефоне — фотографии.</p>
   </header>
 
   <main class='scenes-wrap'>
