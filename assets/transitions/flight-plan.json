@@ -1,5 +1,5 @@
 {
-  "status": "Winter-autumn connected only in pilot.html. Autumn-summer rendered separately. Revised summer-spring two-shot video rendered separately; not connected. Main page remains still-only.",
+  "status": "Legacy winter-autumn video remains installed only in pilot.html, with dynamic replacement storyboard ready. Autumn-summer and summer-spring videos remain separate. New winter-autumn and spring-winter dynamic routes have scenarios and four concept images each; video explicitly deferred by user. Main page remains still-only.",
   "path_base": "project-root",
   "route": [
     "winter",
@@ -19,7 +19,7 @@
     "checked_on": "2026-10-25",
     "status": "One 4-second 1080p generation completed after user approval; live preflight quoted 4 credits."
   },
-  "direction": "Camera moves forward-left into the landscape and leaves the hat behind the right edge. Natural occlusion conceals the location change. Settle on the next approved still. Never morph hats.",
+  "direction": "Season order is forward only. Each route defines its own forward terrain-following camera direction; no lateral truck, hat orbit, reverse flight or hat morph. Stop in the exact approved target still. New slope routes use a brief terrain match-cut between independently created locations.",
   "routes": [
     {
       "id": "winter-autumn",
@@ -28,11 +28,16 @@
       "start_image": "assets/keyframes/winter-v6.png",
       "end_image": "assets/keyframes/autumn-v6.png",
       "beats": [
-        "0–1s: leave snowy ridge and winter hat entirely beyond the right edge",
-        "1–2.2s: enter opaque cloud and hide the cut; cold light becomes warm",
-        "2.2–4s: reveal autumn valley then red cloche, settle and hold the exact end frame"
+        "0-3s: accelerate low over snow and existing stones, leaving the original stationary winter hat behind.",
+        "Around3s: pass safely above the existing boulder's top face; its brief full-frame texture hides an editorial location change while forward motion continues.",
+        "3-6s: lift the gaze into the autumn slope and approach the visible hovering red cloche.",
+        "6-8s: align the final camera axis, brake and settle into the exact approved autumn still."
       ],
-      "occlusion": "low cloud"
+      "occlusion": "Brief0.15-0.25-second top-surface terrain match-cut, not foreground fog or a newly invented vertical wall.",
+      "storyboard": "assets/transitions/winter-autumn-dynamic/storyboard.json",
+      "camera_override": "New concept: low forward descent along the snowy slope, safe overflight above an existing foreground boulder with a brief downward gaze, then forward autumn-slope approach and braking at the stationary hovering red cloche.",
+      "video_status": "Dynamic remake storyboard only; no new video submitted. Existing4-second fog-bridge pilot remains installed as a legacy clip pending a later video stage, and does not represent the new direction.",
+      "duration_seconds_planned": 8
     },
     {
       "id": "autumn-summer",
@@ -72,11 +77,16 @@
       "start_image": "assets/keyframes/spring-v6.png",
       "end_image": "assets/keyframes/winter-v6.png",
       "beats": [
-        "Rise past cherry branch leaving spring hat behind",
-        "Enter cloud belt",
-        "Emerge at snowy ridge and settle on winter hat"
+        "0-2s: low acceleration above spring grass and stones; original stationary panama remains behind.",
+        "2-4s: climb along the existing connected stone shoulder and briefly look down across its safely cleared rounded crest.",
+        "Around4s: a brief full-frame stone surface hides an editorial change to the separate winter location.",
+        "4-8s: reveal the snowy ridge, align the final axis, approach the stationary winter hat and brake into the exact approved winter still."
       ],
-      "occlusion": "cloud belt"
+      "occlusion": "Brief0.15-0.25-second existing rock-crest match-cut; no cloud fade, flash or branch curtain.",
+      "storyboard": "assets/transitions/spring-winter-dynamic/storyboard.json",
+      "camera_override": "New concept: low forward departure over spring grass, gain height along a connected low stone shoulder with a gentle terrain-following curve, pass above its rounded crest, then align and approach the stationary hovering winter hat.",
+      "video_status": "Scenario and four concept images only; no video submitted. User explicitly requested video later.",
+      "duration_seconds_planned": 8
     }
   ],
   "pilot_prompt": "Create a four-second cinematic transition using winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. 0–1s: camera moves forward-left into the snowy valley; the stationary blue hat passes completely beyond the right edge without changing shape. 1–1.8s: enter low cloud. 1.8–2.2s: opaque cloud covers the whole frame and conceals a cut to the separate autumn location while keeping apparent forward momentum. 2.2–3.6s: reveal the warm autumn valley first, then uncover the stationary original red cloche in its approved right-side position. Decelerate and hold the exact autumn composition from3.6–4s. Preserve silhouettes, materials, colours and decorations. Never show both hats together, morph, rotate, duplicate or ground them. No visible landscape melting, optical distortion, added objects or text.",
@@ -114,5 +124,6 @@
     "encoding": "H.264, all-intra, yuv420p, faststart, no audio stream",
     "upscale": "Local FFmpeg Lanczos to 2560x1440. Resampling, not native 1440p or generated extra detail. No cloud upscale credits.",
     "audio": "assets/audio/flight-air.mp3"
-  }
+  },
+  "pilot_prompt_status": "Historical prompt for the existing installed pilot. Its foreground-fog direction was superseded by the winter-autumn dynamic storyboard; preserve for provenance only."
 }

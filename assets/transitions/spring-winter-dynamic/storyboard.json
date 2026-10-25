@@ -1,0 +1,136 @@
+{
+  "id": "spring-winter",
+  "revision": "dynamic-slope-storyboard",
+  "created_on": "2026-10-25",
+  "status": "Scenario and four concept images only. Video explicitly deferred by user.",
+  "image_tool": "Built-in Imagegen",
+  "video_submitted": false,
+  "higgsfield_credits_spent": 0,
+  "duration_seconds_planned": 8,
+  "start_image": "assets/keyframes/spring-v6.png",
+  "end_image": "assets/keyframes/winter-v6.png",
+  "camera": "Low forward acceleration above the spring grass, then a smooth forward curve following the connected uphill bedrock shoulder on the right. Gain height with the terrain, briefly pitch down while safely clearing its convex crest, then reveal the winter ridge and establish the final straight approach axis.",
+  "frames": [
+    {
+      "src": "assets/transitions/spring-winter-dynamic/01-spring-slope.png",
+      "time_seconds_planned": 1.2,
+      "beat": "Разгон низко над весенней травой. Панама остаётся позади справа; существующие мшистые камни продолжаются в низкое плечо впереди по склону.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2515706,
+        "sha256": "7e72b599da411ef99b8f5ac47592065823e24b2d173d39958e709d0199ff7caa"
+      }
+    },
+    {
+      "src": "assets/transitions/spring-winter-dynamic/02-uphill-shoulder.png",
+      "time_seconds_planned": 2.8,
+      "beat": "Камера идёт вперёд по плавной дуге вдоль подъёма плеча. Каменные пластины близко проходят под объективом, высота набирается вместе с рельефом.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2608560,
+        "sha256": "07c52769b76cb1fe39c3fff16e248abc3e5e7461898d911aefd55988d6f82caa"
+      }
+    },
+    {
+      "src": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+      "time_seconds_planned": 4,
+      "beat": "Короткий проход над выпуклой каменной кромкой, с наклоном взгляда к её верхней поверхности. Закрытый общий кадр скрывает смену отдельной локации.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 3264694,
+        "sha256": "068da44b5bb014e4842f5f19be022edb11727331dbdd3c23160107e3bc72d0d8"
+      }
+    },
+    {
+      "src": "assets/transitions/spring-winter-dynamic/04-winter-approach.png",
+      "time_seconds_planned": 5.8,
+      "beat": "Выход на зимний гребень. Синяя шапка уже неподвижна впереди; камера выравнивается на финальную ось, приближается и тормозит в точном зимнем кадре.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2228164,
+        "sha256": "2dbabf5b4538a51c47cc9fa4c4dedf4f633ab1863bad39c34d39d42cfb6c7cab"
+      }
+    }
+  ],
+  "transition": {
+    "type": "brief terrain match-cut",
+    "common_image": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+    "coverage_seconds_target": [
+      0.15,
+      0.25
+    ],
+    "motion": "Maintain texture flow and forward momentum through the join; never dwell or stop on the covered frame.",
+    "meaning": "A concealed editorial change between independent seasonal locations, not a claim that the whole valley is crossed in seconds."
+  },
+  "future_parts": [
+    {
+      "duration_seconds_planned": 4,
+      "first_image": "assets/keyframes/spring-v6.png",
+      "last_image": "assets/transitions/spring-winter-dynamic/03-rock-crest.png"
+    },
+    {
+      "duration_seconds_planned": 4,
+      "first_image": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+      "last_image": "assets/keyframes/winter-v6.png"
+    }
+  ],
+  "constraints": [
+    "User rejected fast foreground-fog transitions; no such fade or white flash",
+    "Visible flight over near terrain carries the dynamics",
+    "Safe clearance above existing low stone; no collision with a newly invented wall",
+    "Stationary original hats, hovering clear of the ground, original materials and decoration",
+    "Only the approved first and last photographs are exact anchors; these intermediate stills are concept compositions, not verified3D camera tracks",
+    "No lake, new platform, branch/leaf curtain, visible melting or snow spreading across spring plants",
+    "Natural near/far optical depth, restrained colour and no tiled textures or full-frame zoom blur",
+    "Existing video files and runtime preserved until a later requested video stage"
+  ],
+  "generation": [
+    {
+      "destination": "assets/transitions/spring-winter-dynamic/01-spring-slope.png",
+      "prompt": "Photoreal cinematic forward-flight storyboard, landscape16:9. EDIT the supplied approved SPRING scene into the first instant of an energetic LOW FLIGHT ABOVE THE SAME GRASSY SLOPE. Camera advances about a metre close above moss and stones, looking slightly down; strong near-ground perspective and tiny motion softness only at the lower corners, distant mountain valley remains steady at the top. The original stationary grey-blue floral panama enlarges naturally and is partly cropped out beyond the RIGHT edge, same exact bell shape, pale floral print, bow, metal medallion and orientation, still hovering with a gap and soft shadow. It never flies, rotates or lands. Crucial terrain continuity: the EXISTING grey mossy stones at the lower/right foreground continue naturally into a LOW BROAD BEDROCK SHOULDER leading away from the lens AHEAD-RIGHT along the rising grassy slope. Show that rock band physically joined to the original stones and ground, clearly a shallow rounded slab/ramp integrated into the hillside, with grass and moss in cracks. It rises only moderately above neighbouring grass, not a tall separate cliff, wall, pillar, tunnel or new mountain in the open valley. The route will follow this visible uphill shoulder after leaving the hat, so its beginning must already be readable in this image. Keep the original cherry crown on the right, original snowy distant skyline and cool spring daylight. No fog in front of the lens, no new forest, lake, snow on the grass, petals swirling into snow, HDR, repeated textures, global zoom blur, text or collage. This is grounded fast movement above real terrain, not a weather transition.",
+      "references": [
+        "assets/keyframes/spring-v6.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/spring-winter-dynamic/04-winter-approach.png",
+      "prompt": "Calibrated photoreal winter intermediate camera keyframe, landscape1672x941. EDIT the supplied approved winter photograph. Preserve the EXACT ORIGINAL dark-blue knitted cloche, its white crocheted flower arrangement, bow/leaf details, bell silhouette, original orientation and knit texture. Show it farther ahead on the SAME final straight optical axis, not merely shrunk in place. Mandatory composition: original projected width about430px becomes310px; place the hat CENTRE at x1125,y460, so it occupies approximately x970–1280 and y335–585. In proportional terms its centre is67.3percent across and48.9percent down, width18.5percent of the frame. These coordinates are instructions only, never draw guides or text. Its position is deliberately closer to image centre than the final reference. Keep the original winter skyline in the same bearings and the same right-side snow/rock slope, cold restrained daylight with soft upper-right sun. Camera has just crested a close rocky shoulder during an energetic forward/uphill flight and is now already aligned at the final height, preparing a short STRAIGHT FORWARD braking approach to the exact supplied final image. A near dark-grey rock lip with thin snow on its edges is passing below and out of the LOWER LEFT edge, not a wall blocking the view. Nearby snow and rocks give depth and subtle lower-edge motion softness, while the hat and distant mountains remain clear. Hat already hovers stationary ahead-right with a real air gap over snow and a credible soft shadow. No fog or cloud curtain near the lens, no new trees or cherry branches, no hat rotation, redesign, duplication or landing, no new huge ridge, magic snowfall, tiling, sharpened HDR or captions.",
+      "references": [
+        "assets/keyframes/winter-v6.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/spring-winter-dynamic/02-uphill-shoulder.png",
+      "prompt": "Photoreal dynamic camera-flight storyboard, landscape16:9. CONTINUE the supplied low spring flight FORWARD ALONG THE SAME visible grey bedrock shoulder/ramp that runs from the lower right foreground into the hillside. The camera has now passed the stationary hat, so the hat and cherry canopy are BEHIND the camera and absent from this view. Follow the natural uphill curve of the already shown rock band with a gentle change of forward heading, not sideways camera tracking; gain a few metres following the slope. Make a REAL legible climb: near low stone plates and grass rush down past the lower corners, the shoulder's gently rounded convex lip lies directly AHEAD, and a strip of the SAME spring valley and snowy distant peaks stays visible to the LEFT/top. The close rock is a broad sloped convex outcrop with moss-filled shallow cracks and grass on its sides, physically continuous with the low stones in the supplied first frame. Its upper surface leads under the camera; there is a safe forward/upward path OVER the rounded lip. Do NOT invent a tall vertical cliff, isolated rock tower, tunnel, podium, mountain wall or floating rock in the open valley. The rounded lip is now near enough to occupy roughly60percent of the lower/central frame, but the terrain corridor and shoulder connection remain readable. Natural matte grey-brown geology and restrained green moss, cool spring daylight, real depth and restrained lower-edge motion softness. Ground remains spring grass/stone throughout this frame, no snow appearing on it. No foreground fog, magical season conversion, lake, flying hat, zoom blur, HDR/sharp outlines, oversaturated moss, tiled ground, text or collage.",
+      "references": [
+        "assets/transitions/spring-winter-dynamic/01-spring-slope.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+      "prompt": "Photoreal single close terrain-flight storyboard frame, landscape16:9. Continue the supplied forward/uphill flight OVER THE SAME LOW CONVEX GREY ROCK SHOULDER already filling the lower centre of the reference. The camera has pitched its gaze briefly DOWN across the rounded upper lip while safely clearing it with a small gap. It is overflying and cresting this existing sloped outcrop, NOT confronting a vertical wall or colliding with solid stone. For this very brief common match-cut instant, the gently convex matte grey-brown upper rock surface fills the ENTIRE image including corners and hides all landscape, grass, sky, valley and hat. Preserve the exact natural geological character visible in the supplied shoulder: broad irregular weathered planes, modest shallow fissures, sparse muted green-gold lichen, no exaggerated jagged mountain relief. Direction of perspective should read from lower near face towards the slightly more distant top, supporting uninterrupted FORWARD movement uphill; slight natural motion softness only in nearest lower corners. Soft neutral natural light allows this closed view to conceal an edit to the separate winter location. No snow in this common frame, no grass or blossom sticking into the edges, no fog, flash, dark fade, vertical cliff, new rock pillar, people, symbols or text. Real photographic stone, credible optical focus falloff and irregular detail, never tiled/fractal rocky texture or sharpened HDR. This is one transient terrain pass, not a static wall backdrop.",
+      "references": [
+        "assets/transitions/spring-winter-dynamic/02-uphill-shoulder.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/spring-winter-dynamic/04-winter-approach.png",
+      "prompt": "Precise photographic object-position edit of this exact1672x941 winter image. MOVE ONLY the existing hovering navy knitted cloche AND its soft snow shadow about130pixels to the RIGHT (7.8percent of frame width). Put the hat centre about1163px across,69.6percent across, instead of its current centre around1035px. KEEP its current pixel width/height EXACTLY unchanged (width about350px), same orientation, exact knit loops, same TWO off-white crocheted flowers and leaves, silhouette, shading and air gap over the snow. Do not recreate, shrink, enlarge, rotate or redesign the hat. Its soft shadow remains on the snow under its relocated position; erase all ghost hat/shadow from the old spot and reconstruct underlying snow/landscape naturally. Everything else stays in place: original mountain skyline, cloud shapes, foreground rocks, snow, exposure, colours and light direction must remain unchanged. No camera change, crop or added elements. This one horizontal projection correction prepares the same hat for a straight forward approach into its approved final anchor. Photographic natural finish, no fog curtain, artificial texture, extra flowers, text or guides.",
+      "references": [],
+      "edit_of_local_draft": true
+    }
+  ],
+  "review": {
+    "result": "GO for scenario and concept images after independent review. Frames01-02 show a connected low stone shoulder; frame03 is a safe brief overflight of its top surface, with no sudden vertical wall, foreground fog or white flash. The corrected winter approach preserves the recognizable blue hat and flowers. No mandatory concept-set defect remains; exact camera trajectory, parallax and final seam require future video review.",
+    "scope": "Storyboards only. Actual motion, camera trajectory, seams and hat stability between frames remain unverified until a future video exists.",
+    "reviewer": "review_pilot_player"
+  }
+}

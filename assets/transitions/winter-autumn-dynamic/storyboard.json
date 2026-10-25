@@ -1,0 +1,143 @@
+{
+  "id": "winter-autumn",
+  "revision": "dynamic-slope-storyboard",
+  "created_on": "2026-10-25",
+  "status": "Scenario and four concept images only. Video explicitly deferred by user.",
+  "image_tool": "Built-in Imagegen",
+  "video_submitted": false,
+  "higgsfield_credits_spent": 0,
+  "duration_seconds_planned": 8,
+  "start_image": "assets/keyframes/winter-v6.png",
+  "end_image": "assets/keyframes/autumn-v6.png",
+  "camera": "Low forward descent along the existing snowy slope. Pitch the gaze down above an existing foreground boulder, pass safely over its top face, then lift the gaze along the autumn slope and brake into the approved red-cloche still. Small terrain-following course correction is allowed before the final approach; no lateral truck or hat orbit.",
+  "frames": [
+    {
+      "src": "assets/transitions/winter-autumn-dynamic/01-snow-slope.png",
+      "time_seconds_planned": 1.4,
+      "beat": "Низкий разгон над снежным склоном. Камни и кустарник быстро расходятся под камерой, зимняя шляпа остаётся позади за правым верхним краем.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2466494,
+        "sha256": "0d641bc7a80270fb9fd9adccff1f1dcb298849bfb7b4fb1f4d0c5c5806511a0b"
+      }
+    },
+    {
+      "src": "assets/transitions/winter-autumn-dynamic/02-over-rock.png",
+      "time_seconds_planned": 3,
+      "beat": "Короткий проход НАД верхней поверхностью уже видимого камня. Взгляд наклонён вниз; камера проходит с зазором, а не врезается в стену. Общий кадр для монтажного стыка.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 3411028,
+        "sha256": "3a6130c62b2b75ba385a545c33d0b7955fbcb971660d26a2114ab69ea8df7dbd"
+      }
+    },
+    {
+      "src": "assets/transitions/winter-autumn-dynamic/03-autumn-slope.png",
+      "time_seconds_planned": 4.3,
+      "beat": "Камень уходит под объектив, открывается низкий пролёт над осенней травой и камнями. Красный клош уже виден дальше по склону и парит над землёй.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2664150,
+        "sha256": "58d082f8da782cdf8781cc1c6c0912bcc3928131965055bc5d82d76c6846dcd6"
+      }
+    },
+    {
+      "src": "assets/transitions/winter-autumn-dynamic/04-autumn-approach.png",
+      "time_seconds_planned": 6,
+      "beat": "Камера поднимает взгляд, доводит курс на финальную ось и тормозит у неподвижного красного клоша. Затем точный утверждённый осенний кадр.",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "bytes": 2402467,
+        "sha256": "f1da452e15c23e33805668aeb65a065c198a4c864ed5ba7d7cc92d7819558df4"
+      }
+    }
+  ],
+  "transition": {
+    "type": "brief terrain match-cut",
+    "common_image": "assets/transitions/winter-autumn-dynamic/02-over-rock.png",
+    "coverage_seconds_target": [
+      0.15,
+      0.25
+    ],
+    "motion": "Maintain texture flow and forward momentum through the join; never dwell or stop on the covered frame.",
+    "meaning": "A concealed editorial change between independent seasonal locations, not a claim that the whole valley is crossed in seconds."
+  },
+  "future_parts": [
+    {
+      "duration_seconds_planned": 3,
+      "first_image": "assets/keyframes/winter-v6.png",
+      "last_image": "assets/transitions/winter-autumn-dynamic/02-over-rock.png"
+    },
+    {
+      "duration_seconds_planned": 5,
+      "first_image": "assets/transitions/winter-autumn-dynamic/02-over-rock.png",
+      "last_image": "assets/keyframes/autumn-v6.png"
+    }
+  ],
+  "constraints": [
+    "User rejected fast foreground-fog transitions; no such fade or white flash",
+    "Visible flight over near terrain carries the dynamics",
+    "Safe clearance above existing low stone; no collision with a newly invented wall",
+    "Stationary original hats, hovering clear of the ground, original materials and decoration",
+    "Only the approved first and last photographs are exact anchors; these intermediate stills are concept compositions, not verified3D camera tracks",
+    "No lake, new platform, branch/leaf curtain, visible melting or snow spreading across spring plants",
+    "Natural near/far optical depth, restrained colour and no tiled textures or full-frame zoom blur",
+    "Existing video files and runtime preserved until a later requested video stage"
+  ],
+  "generation": [
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/01-snow-slope.png",
+      "prompt": "Photoreal cinematic storyboard, landscape16:9. EDIT the supplied approved WINTER photograph as a later instant in a dynamic low FORWARD flight DOWN the SAME snowy mountain slope. Camera now glides only about0.8–1.2m above the snow, pointing about18degrees farther DOWN with smooth pitch, never sideways tracking or orbiting. Near snow, irregular exposed dark stone and low brown alpine shrubs rush outward under the lens with strong depth-dependent perspective; retain a strip of the SAME distant mountain valley across the upper frame so the landscape is recognizable, not a newly invented gully. The source's large dark grey lichen-speckled foreground boulder, formerly along the lower-centre/right edge, is now CLEARLY VISIBLE immediately below/ahead of the camera as the next terrain feature to overfly. It is a low weathered rounded slab connected to this existing slope, not a vertical wall, pillar, podium or added mountain. Make its top surface and snow sitting around its base readable. The original stationary dark blue knitted cloche is enlarged through forward perspective and mostly cropped OUT beyond the RIGHT upper edge, with at most a recognizable small portion of the same brim/white crocheted flower decoration at the extreme edge. No independent hat flight, rotation or landing. Camera moves forward and descends with terrain; snow and rocks feel near and fast, distant peaks remain optically stable in azimuth. Natural restrained winter grey-blue light matching the source, matte irregular rocks and snow with optical depth, slight directional motion softness only in the closest bottom corners. No fog or cloud veil in front of the lens, no white fade, magical snow-to-grass, new objects, text, tiling, HDR outlines, plastic terrain or global zoom blur.",
+      "references": [
+        "assets/keyframes/winter-v6.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/04-autumn-approach.png",
+      "prompt": "Photoreal cinematic storyboard frame, landscape16:9. EDIT the supplied approved AUTUMN photograph to a viewpoint slightly FARTHER BACK on the SAME optical axis, as a camera finishes a dynamic low FORWARD flight above the existing autumn slope and begins a smooth rise/braking into this exact final photograph. Keep the exact same muted golden-brown valley, mountain skyline, right-hand autumn trees, real irregular grass, moss and scattered rock, matching natural source sunlight from upper right. The SAME original brick-red felt cloche is already stationary ahead-right with original silhouette, bow, felt material and orientation. Important perspective: in this1672x941 frame its projected width should be about275pixels (72percent of original), its CENTRE approximately x1048,y435 (62.7percent across,46.2percent down), nearer the vanishing point than the final hat. These are composition directions only, never draw numbers, guides or text. A future straight forward approach will grow and move it outward into the supplied final position without lateral hat motion. Keep a convincing hovering air gap above the grassy slope and credible soft shadow. Foreground grass and low stones are near the lens and flow outwards in perspective, showing the end of an energetic terrain flight; only tiny motion softness at the nearest lower edge, with hat and distant valley crisp. Do not invent a pedestal, rock wall or forest corridor, and do not put the hat on the ground. No lake, fog curtain, flying leaves, changing hat design, orange HDR, tiled vegetation, plastic moss, added grain, captions or borders.",
+      "references": [
+        "assets/keyframes/autumn-v6.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/02-over-rock.png",
+      "prompt": "Photoreal single cinematic camera-flight storyboard frame, landscape16:9. Continue the supplied winter slope flight into a very close pass DIRECTLY ABOVE the SAME LOW GREY BOULDER TOP that is already visible at the lower centre/right of the reference. The camera is clearly looking DOWN at roughly60degrees, flying forward with safe clearance over its gently convex upper surface, NOT facing or crashing into a vertical wall. The top face of this existing rock now fills the ENTIRE image including corners: weathered irregular matte grey-brown stone, recognisable scattered pale green and muted ochre lichen islands and natural restrained shallow fissures, matching the reference rock. This is a short subsecond match-cut position in an energetic overflight, not a frozen surface shot. The upper portion of the plane is slightly more distant than the lower edge, with credible perspective and optical focus falloff; slight forward motion softness in only the closest lower corners. No solid rock intersects the camera route. All snow sits OUTSIDE this closely framed bare top face; no snow, sky, valley, plants, ground beyond the rock or hat is visible. Its material must be irregular REAL STONE under soft diffuse source daylight, not a CGI rocky wall, glitter, fractal noise, tiled texture, poster pattern or exaggerated crevice relief. No fog, white dissolve, colour transformation, snow melting, particles, text, panorama or collage. Show one coherent natural low boulder surface viewed from above, preserving the physical material of the supplied rock.",
+      "references": [
+        "assets/transitions/winter-autumn-dynamic/01-snow-slope.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/03-autumn-slope.png",
+      "prompt": "Photoreal dynamic low forward-flight storyboard, landscape16:9. Image1 is the real close boulder surface that has just passed UNDER the camera; image2 is the approved autumn destination, exact valley and red cloche identity reference. Show the next moment of the SAME FAST FORWARD glide AFTER one concealed match-cut on that stone. The same grey lichen-speckled low boulder top is now receding BELOW the lens across the bottom-left quarter; it is not a wall or a new pillar. Raise the camera's gaze smoothly from the downward rock pass to about15degrees down along the AUTUMN grassy slope, revealing the exact image2 valley, mountain silhouettes and autumn woodland across the upper third/half. The near ground is very close: irregular ochre grass, low moss and scattered low stones flow under the camera with strong perspective and light lower-edge motion streaking, but natural sharp distant geography. An energetic descent along a believable existing slope, no jump to a bird's-eye aerial vista, no lake. The original brick-red felt cloche from image2 is ALREADY stationary farther ahead and hovering above the autumn slope, much smaller, roughly one third of its final width, near the central-right vanishing direction (about56percent across) and unobscured enough to recognise. Its bow, bell silhouette and red felt stay unchanged; it does not fly in or move independently. Warm restrained autumn side light matching image2, muted straw/ochre/copper vegetation and natural contrast, not glowing orange HDR. Snow has gone only because the location edit occurred while the view was fully hidden by the bare stone, not visible melting or changing plants. No fog in front of lens, leaf curtain, white flash, hat morph, added trees/objects, repeated gravel or grass, noise overlay or text.",
+      "references": [
+        "assets/transitions/winter-autumn-dynamic/02-over-rock.png",
+        "assets/keyframes/autumn-v6.png"
+      ],
+      "edit_of_local_draft": false
+    },
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/04-autumn-approach.png",
+      "prompt": "Precise photographic object-position edit, preserve this exact landscape16:9 image and camera view. MOVE ONLY the existing floating red felt cloche AND its soft ground shadow about90pixels LEFT (5.4percent of frame width) and13pixels DOWN (1.4percent of frame height). Its current centre is about1090px across; put its centre at about1000px, or60percent across. Keep its CURRENT pixel size EXACTLY the same, same silhouette, felt, red colour, bow, orientation, shading and hovering gap: do not enlarge, shrink, rotate, redesign or replace it. The shadow must stay on the ground below the repositioned hat, with no ghost hat/shadow at its old position; reconstruct old spot from adjacent scenery. Keep every mountain, tree, rock, grass shape, viewpoint and light direction in its existing position. Additionally make the overall photograph slightly more restrained: gently reduce excessive yellow/orange saturation and crunchy local microcontrast while retaining natural warm right-side autumn sunlight, source colour relationships and real stone/grass depth. No new objects, text, fog, tiling or HDR. This is a calibrated perspective correction for a forward camera approach, not a new design.",
+      "references": [],
+      "edit_of_local_draft": true
+    },
+    {
+      "destination": "assets/transitions/winter-autumn-dynamic/03-autumn-slope.png",
+      "prompt": "Precise photographic edit of this exact dynamic low-flight autumn frame. The small red cloche currently appears to touch the grassy ridge: correct ONLY its placement so it is clearly hovering. Keep the SAME small hat pixel size, red felt, bow, silhouette, orientation and identity. MOVE it about120pixels LEFT and55pixels UP from its current position, so its centre is roughly x912,y285 in this1672x941 image. The hat must have a plainly visible clean AIR GAP above the grass, not be resting on grass or stone. Put a small credible soft shadow down on the grassy surface below it, detached from the hat by the visible air gap. Remove the old hat and its old contact/ghost shadow completely, restoring the grass behind. Preserve the same forward/downhill camera view, rock at lower left, ground details, mountains, trees, warm sunlight and slight nearest-ground motion softness. Gently restrain excessive orange saturation/local HDR crunch while keeping the autumn sunset feel and photographic depth. No hat enlargement, landing, spinning, new hats or other objects, fog, text or collage. The still depicts approaching the SAME stationary hat from farther away; it never flies independently.",
+      "references": [],
+      "edit_of_local_draft": true
+    }
+  ],
+  "review": {
+    "result": "GO for showing the scenario/concepts. Rock02 reads as a top surface under the camera;03 has an actual hovering gap. Close terrain carries the dynamics; no new wall, foreground fog or curtain. Exact03→04→final camera angles, hat projection and skyline still require alignment before a video render.",
+    "scope": "Storyboards only. Actual motion, camera trajectory, seams and hat stability between frames remain unverified until a future video exists.",
+    "reviewer": "season_flight_direction"
+  }
+}
