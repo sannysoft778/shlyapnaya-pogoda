@@ -7,6 +7,16 @@
       "sha256": "79108a2c51237ddd405a4b7bfad5a90fbf569d010ade11502b59ca8a12431b8e"
     },
     {
+      "src": "assets/transitions/masters/spring-winter-part-01-source.mp4",
+      "bytes": 12063944,
+      "sha256": "6512ea0f45dbccebc94450f5d994fe003d32f3df0a09cde4f9832b2d60995058"
+    },
+    {
+      "src": "assets/transitions/masters/spring-winter-part-02-source.mp4",
+      "bytes": 10644000,
+      "sha256": "27a80ad4f6e8b1b9319a565f0a8f0383d4d63427b5a9b9602f7bd4f45556cdb3"
+    },
+    {
       "src": "assets/transitions/masters/summer-spring-attempt-01-source.mp4",
       "bytes": 21029831,
       "sha256": "cfc8b7b97a88743aadf94c31f92895db8fcf03a0a0e9cd2fa843e45327062569"

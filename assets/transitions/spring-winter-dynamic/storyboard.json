@@ -2,10 +2,10 @@
   "id": "spring-winter",
   "revision": "dynamic-slope-storyboard",
   "created_on": "2026-10-25",
-  "status": "Scenario and four concept images only. Video explicitly deferred by user.",
+  "status": "Two4-second Kling4.0 source generations completed on the first attempt per part. Joined silent pilot preview is7.333seconds after a local rock-reveal tempo edit. Not connected to the site player.",
   "image_tool": "Built-in Imagegen",
-  "video_submitted": false,
-  "higgsfield_credits_spent": 0,
+  "video_submitted": true,
+  "higgsfield_credits_spent": 8,
   "duration_seconds_planned": 8,
   "start_image": "assets/keyframes/spring-v6.png",
   "end_image": "assets/keyframes/winter-v6.png",
@@ -132,5 +132,82 @@
     "result": "GO for scenario and concept images after independent review. Frames01-02 show a connected low stone shoulder; frame03 is a safe brief overflight of its top surface, with no sudden vertical wall, foreground fog or white flash. The corrected winter approach preserves the recognizable blue hat and flowers. No mandatory concept-set defect remains; exact camera trajectory, parallax and final seam require future video review.",
     "scope": "Storyboards only. Actual motion, camera trajectory, seams and hat stability between frames remain unverified until a future video exists.",
     "reviewer": "review_pilot_player"
+  },
+  "video_generation": {
+    "created_on": "2026-10-26",
+    "model": "kling4_0",
+    "generation_mode": "image-to-video with exact start/end media per part",
+    "resolution": "1080p",
+    "attempts_per_part": [
+      1,
+      1
+    ],
+    "quoted_credits_total": 8,
+    "observed_credit_balance_decrease": 8,
+    "parts": [
+      {
+        "src": "assets/transitions/masters/spring-winter-part-01-source.mp4",
+        "bytes": 12063944,
+        "sha256": "6512ea0f45dbccebc94450f5d994fe003d32f3df0a09cde4f9832b2d60995058",
+        "frames": 97,
+        "first_image": "assets/keyframes/spring-v6.png",
+        "last_image": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+        "duration_seconds_requested": 4,
+        "quoted_credits": 4,
+        "prompt": "Photoreal continuous forward camera flight, silent. Use the supplied spring photograph as the exact first frame and the supplied close rock photograph as the exact last frame. Immediately accelerate LOW FORWARD above the existing grassy slope with a fixed 28mm lens. The floral panama remains stationary, hovering in the scene; it grows naturally through forward perspective and leaves the RIGHT edge within the first 1.2 seconds, without rotating. Nearby grass and stones stream down past the lower edges while the distant skyline stays stable. The existing grey stones on the right continue into a LOW, connected, gently rounded bedrock shoulder along the uphill slope. Follow this shallow shoulder FORWARD with a smooth rise matching the terrain. During the final second, safely clear its convex upper lip and gradually pitch the gaze DOWN across its top, until the exact end-frame stone surface fills the lens. Keep forward texture flow and speed through the final frame; do not stop on the rock. Natural restrained daylight and optical motion blur only in nearby terrain. No sideways tracking, yaw, roll, lens zoom, new cliff or vertical wall, collision, tunnel, foreground fog, flash, dissolve, magical snow, hat deformation or flying hat."
+      },
+      {
+        "src": "assets/transitions/masters/spring-winter-part-02-source.mp4",
+        "bytes": 10644000,
+        "sha256": "27a80ad4f6e8b1b9319a565f0a8f0383d4d63427b5a9b9602f7bd4f45556cdb3",
+        "frames": 97,
+        "first_image": "assets/transitions/spring-winter-dynamic/03-rock-crest.png",
+        "last_image": "assets/keyframes/winter-v6.png",
+        "duration_seconds_requested": 4,
+        "quoted_credits": 4,
+        "prompt": "Photoreal continuous forward camera flight, silent. Start at the exact supplied close view of the rounded rock TOP and continue moving FORWARD over it at the same speed. The camera safely clears this LOW convex crest, never a vertical wall. During the first 0.7 seconds, gently raise the gaze while the same near rock surface flows DOWN and out below the lens, revealing the snowy mountain scene already beyond it. The original navy knitted cloche is ALREADY hovering stationary ahead-right, with its original white crocheted flowers and leaves, orientation and real air gap above snow. Once the winter vista opens, keep a straight forward approach with fixed 28mm lens, stable heading and level horizon; near snowy stones pass below while the distant mountains stay steady. Approach the fixed hat, then decelerate smoothly only during the last 0.4 seconds and finish at the EXACT supplied winter composition. Preserve the hat silhouette, knit and flower arrangement throughout. No sideways tracking, yaw, orbit, roll, lens zoom, fog curtain, white flash, dissolve, new cliff, rock melting, snow spreading over spring plants, hat rotation, landing, duplication or morphing."
+      }
+    ],
+    "outputs": [
+      {
+        "src": "assets/transitions/spring-winter-1080p.mp4",
+        "bytes": 13379256,
+        "sha256": "3ec9c7be6d84c51389e69adb5f8e1b461a41e244c3b149c13ecf05f72e139f5f",
+        "frames": 176,
+        "silent": true
+      },
+      {
+        "src": "assets/transitions/spring-winter-1440p.mp4",
+        "bytes": 20638585,
+        "sha256": "3cfdd22a9a80c4fa53a439c85666b011403088b203b851ef119b80634f38f82f",
+        "frames": 176,
+        "silent": true
+      }
+    ],
+    "combined_frames": 176,
+    "fps": 24,
+    "duration_seconds": 7.333333333333333,
+    "join": "Remove the duplicate final bridge frame from partA, then continue from the identical supplied rock image in partB.",
+    "local_tempo_edit": {
+      "source": "part-02-source.mp4",
+      "source_range_seconds": [
+        0,
+        1.5
+      ],
+      "output_frames": 19,
+      "output_seconds": 0.7916666666666666,
+      "method": "Deterministic source-frame selection:2x initially, easing to1x at the end. No synthetic interpolation; all subsequent winter approach frames and exact final source frame preserved.",
+      "other_part_speed": "unchanged"
+    },
+    "audio": "Original masters contain the provider's AAC stream. Web copies have audio fully removed with -an. No separate audio generation or audio reference was requested.",
+    "upscale": "QHD2560x1440 is local FFmpeg Lanczos resampling of the1080p source, not native generated1440p detail; no cloud upscale credits.",
+    "review": {
+      "result": "GO for pilot preview after the local rock-reveal tempo correction; no new generation needed.",
+      "parent": "Reviewed both sampled source sequences, the retimed join and final frame. Low terrain flight and original hats read correctly; no explicit fog fade, new vertical wall, visible collision or obvious hat morph found. SourceB lingered over the slab, corrected locally.",
+      "independent_reviewer": "spring_winter_video_qa",
+      "independent": "A and B accepted from contact sheets and selected full-resolution frames; shorten B's rock reveal locally while leaving the later approach intact.",
+      "limits": "Frame-based visual review confirms only sampled geometry, hat identity and composition. Continuous playback, scroll seeking, and seams against live still layers remain to be assessed in the future player preview. Near rock texture and motion blur retain some generative softness.",
+      "independent_final": "GO after local tempo edit: retimed join frames consistently reveal the winter slope, with no new wall, collision or obvious morph. Final hat and composition preserved. No visual reason for further credits. Continuous playback and scroll seeking were not assessed by this static QA."
+    }
   }
 }

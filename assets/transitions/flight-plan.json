@@ -1,5 +1,5 @@
 {
-  "status": "Legacy winter-autumn video remains installed only in pilot.html, with dynamic replacement storyboard ready. Autumn-summer and summer-spring videos remain separate. New winter-autumn and spring-winter dynamic routes have scenarios and four concept images each; video explicitly deferred by user. Main page remains still-only.",
+  "status": "Legacy winter-autumn video remains installed only in pilot.html; dynamic replacement storyboard is ready. Autumn-summer, summer-spring and the new spring-winter videos are rendered separately, not connected. Main page remains still-only.",
   "path_base": "project-root",
   "route": [
     "winter",
@@ -77,16 +77,19 @@
       "start_image": "assets/keyframes/spring-v6.png",
       "end_image": "assets/keyframes/winter-v6.png",
       "beats": [
-        "0-2s: low acceleration above spring grass and stones; original stationary panama remains behind.",
-        "2-4s: climb along the existing connected stone shoulder and briefly look down across its safely cleared rounded crest.",
-        "Around4s: a brief full-frame stone surface hides an editorial change to the separate winter location.",
-        "4-8s: reveal the snowy ridge, align the final axis, approach the stationary winter hat and brake into the exact approved winter still."
+        "0-4s: forward low acceleration along the grassy slope, leaving the stationary spring panama behind; climb safely above a connected rounded stone shoulder.",
+        "Around4s: the common close rock-top view hides the editorial location change while retaining forward travel.",
+        "4-4.8s: locally shortened crest reveal opens the snowy mountain scene.",
+        "4.8-7.33s: approach the original stationary winter hat and decelerate into the exact approved winter composition."
       ],
-      "occlusion": "Brief0.15-0.25-second existing rock-crest match-cut; no cloud fade, flash or branch curtain.",
+      "occlusion": "Existing low rock crest. Planned very brief full coverage; sourceB's first1.5seconds shortened locally to0.792seconds without altering the later approach. No fog fade or branch curtain.",
       "storyboard": "assets/transitions/spring-winter-dynamic/storyboard.json",
       "camera_override": "New concept: low forward departure over spring grass, gain height along a connected low stone shoulder with a gentle terrain-following curve, pass above its rounded crest, then align and approach the stationary hovering winter hat.",
-      "video_status": "Scenario and four concept images only; no video submitted. User explicitly requested video later.",
-      "duration_seconds_planned": 8
+      "video_status": "Two4-second source segments completed on the first attempt each,8credits total. Joined and locally retimed to7.333seconds; reviewed for pilot preview. Not connected.",
+      "duration_seconds_planned": 8,
+      "video": "assets/transitions/spring-winter-1440p.mp4",
+      "alternate_video": "assets/transitions/spring-winter-1080p.mp4",
+      "duration_seconds": 7.333333333333333
     }
   ],
   "pilot_prompt": "Create a four-second cinematic transition using winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. 0–1s: camera moves forward-left into the snowy valley; the stationary blue hat passes completely beyond the right edge without changing shape. 1–1.8s: enter low cloud. 1.8–2.2s: opaque cloud covers the whole frame and conceals a cut to the separate autumn location while keeping apparent forward momentum. 2.2–3.6s: reveal the warm autumn valley first, then uncover the stationary original red cloche in its approved right-side position. Decelerate and hold the exact autumn composition from3.6–4s. Preserve silhouettes, materials, colours and decorations. Never show both hats together, morph, rotate, duplicate or ground them. No visible landscape melting, optical distortion, added objects or text.",
