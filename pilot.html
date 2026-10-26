@@ -8,8 +8,9 @@
 <meta name='theme-color' content='#0b0c0d'>
 <link rel='preload' href='assets/fonts/manrope-variable.ttf' as='font' type='font/ttf' crossorigin>
 <link rel='preload' href='assets/fonts/hat-weather-display.woff2' as='font' type='font/woff2' crossorigin>
-<link rel='stylesheet' href='styles.css'>
-<link rel='stylesheet' href='pilot.css'>
+<link rel='preload' href='assets/fonts/cormorant-garamond-italic.ttf' as='font' type='font/ttf' crossorigin>
+<link rel='stylesheet' href='styles.css?v=20261026-editorial3'>
+<link rel='stylesheet' href='pilot.css?v=20261026-editorial'>
 <script>document.documentElement.classList.add('js')</script>
 <script type='module' src='pilot-player.mjs'></script>
 </head>
@@ -45,7 +46,7 @@
     <video class='pilot-video' muted playsinline preload='none' aria-hidden='true' disablepictureinpicture></video>
     <div class='scene__shade pilot-video-shade' aria-hidden='true'></div>
     <div class='scene__copy pilot-copy'>
-      <p class='scene__mood'>01 / Зима</p>
+      <p class='scene__mood sr-only'>01 / Зима</p>
       <h2 class='scene__title'>Пойдём по снегу</h2>
       <p class='scene__text'>Тёмно-синяя вязаная шапка-клош с&nbsp;молочными цветами.</p>
     </div>

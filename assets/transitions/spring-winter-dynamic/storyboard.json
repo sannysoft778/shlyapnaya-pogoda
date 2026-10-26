@@ -209,5 +209,14 @@
       "limits": "Frame-based visual review confirms only sampled geometry, hat identity and composition. Continuous playback, scroll seeking, and seams against live still layers remain to be assessed in the future player preview. Near rock texture and motion blur retain some generative softness.",
       "independent_final": "GO after local tempo edit: retimed join frames consistently reveal the winter slope, with no new wall, collision or obvious morph. Final hat and composition preserved. No visual reason for further credits. Continuous playback and scroll seeking were not assessed by this static QA."
     }
+  },
+  "player_integration": {
+    "date": "2026-10-26",
+    "page": "pilot-spring-winter.html",
+    "manifest": "assets/transitions/spring-winter-clip.json",
+    "main_site": "Still-only; legacy winter-autumn pilot preserved.",
+    "browser_review": "Wheel paused at0.853274seconds; button continued to the winter still and removed video src. Explicit air-audio enable succeeded without visible playback denial. At390x844 the photo fallback requests no video. Human listening quality is not verified.",
+    "automated_tests": "74 passing overall, including three new spring-winter regressions.",
+    "additional_higgsfield_credits": 0
   }
 }

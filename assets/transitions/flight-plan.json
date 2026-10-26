@@ -85,11 +85,13 @@
       "occlusion": "Existing low rock crest. Planned very brief full coverage; sourceB's first1.5seconds shortened locally to0.792seconds without altering the later approach. No fog fade or branch curtain.",
       "storyboard": "assets/transitions/spring-winter-dynamic/storyboard.json",
       "camera_override": "New concept: low forward departure over spring grass, gain height along a connected low stone shoulder with a gentle terrain-following curve, pass above its rounded crest, then align and approach the stationary hovering winter hat.",
-      "video_status": "Two4-second source segments completed on the first attempt each,8credits total. Joined and locally retimed to7.333seconds; reviewed for pilot preview. Not connected.",
+      "video_status": "Two4-second source segments completed on the first attempt each,8credits total. Joined and locally retimed to7.333seconds. Connected to the separate spring-winter pilot; main site remains still-only.",
       "duration_seconds_planned": 8,
       "video": "assets/transitions/spring-winter-1440p.mp4",
       "alternate_video": "assets/transitions/spring-winter-1080p.mp4",
-      "duration_seconds": 7.333333333333333
+      "duration_seconds": 7.333333333333333,
+      "pilot_page": "pilot-spring-winter.html",
+      "manifest": "assets/transitions/spring-winter-clip.json"
     }
   ],
   "pilot_prompt": "Create a four-second cinematic transition using winter-v6.png as the exact first frame and autumn-v6.png as the exact last frame. 0–1s: camera moves forward-left into the snowy valley; the stationary blue hat passes completely beyond the right edge without changing shape. 1–1.8s: enter low cloud. 1.8–2.2s: opaque cloud covers the whole frame and conceals a cut to the separate autumn location while keeping apparent forward momentum. 2.2–3.6s: reveal the warm autumn valley first, then uncover the stationary original red cloche in its approved right-side position. Decelerate and hold the exact autumn composition from3.6–4s. Preserve silhouettes, materials, colours and decorations. Never show both hats together, morph, rotate, duplicate or ground them. No visible landscape melting, optical distortion, added objects or text.",
@@ -100,7 +102,7 @@
     "readiness": "Decode target still first. Retain source until first displayed video frame. Preload nearest clip only.",
     "completion": "Target still behind last video frame. Check the seam visually, then remove video.",
     "preload_timeout_ms": 500,
-    "fallback": "Auto failure uses the decoded autumn still. Initial scrub failure retains winter and offers the still via the button. No reverse flight.",
+    "fallback": "Auto failure uses the decoded target still. Initial scrub failure retains the source and offers the target photo via the button. No reverse flight.",
     "rapid_next": "Loading retains accumulated wheel input. Button during scrub continues; during auto playback it skips. No invisible seasons are queued.",
     "interruption": "Menu cancels video and uses latest available requested still; no intermediate flights.",
     "keyboard_and_reduced_motion": "Go directly to target still. Escape/Skip finishes an active flight. Retain control focus and announce only settled season.",

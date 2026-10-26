@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+<title>Пробный перелёт — Шляпная погода</title>
+<meta name='description' content='Отдельная проба видеоперехода от весны к зиме.'>
+<meta name='theme-color' content='#0b0c0d'>
+<link rel='preload' href='assets/fonts/manrope-variable.ttf' as='font' type='font/ttf' crossorigin>
+<link rel='preload' href='assets/fonts/hat-weather-display.woff2' as='font' type='font/woff2' crossorigin>
+<link rel='preload' href='assets/fonts/cormorant-garamond-italic.ttf' as='font' type='font/ttf' crossorigin>
+<link rel='stylesheet' href='styles.css?v=20261026-editorial3'>
+<link rel='stylesheet' href='pilot.css?v=20261026-editorial'>
+<script>document.documentElement.classList.add('js')</script>
+<script type='module' src='pilot-player.mjs'></script>
+</head>
+<body class='pilot is-photo-only' data-flight='spring-winter'>
+<div class='stage'>
+  <header class='site-top'>
+    <div class='pilot-topline'>
+      <p class='site-top__mark'>Шляпы для четырёх сезонов</p>
+      <button class='pilot-sound' type='button' aria-pressed='false' aria-label='Звук воздуха'>Звук: выкл.</button>
+    </div>
+    <div class='pilot-note'>
+      <p>Пробный перелёт</p>
+      <p class='pilot-status'>Ролик ещё не подключён</p>
+      <p class='pilot-hint'><span class='pilot-hint__text'>Крутите колесо вперёд или нажмите «К зиме».</span> <output class='pilot-progress' aria-label='Ход перелёта' aria-live='off'>На старте · 0%</output></p>
+    </div>
+    <p class='pilot-mobile-note'>На телефоне — фотографии.</p>
+  </header>
+
+  <main class='scenes-wrap'>
+    <h1 class='title'><span class='title__name'>Шляпная</span> <span class='title__weather'>погода</span></h1>
+    <div class='scenes'>
+      <section class='scene is-active' id='spring' data-season='spring' aria-label='Весна'>
+        <img class='scene__img' src='assets/keyframes/spring-v6.png' width='1672' height='941' fetchpriority='high' decoding='async' alt='Серо-голубая цветочная панама над прохладным весенним склоном под цветущей сакурой'>
+        <div class='scene__shade' aria-hidden='true'></div>
+      </section>
+      <section class='scene' id='winter' data-season='winter' aria-label='Зима' inert>
+        <img class='scene__img' src='assets/keyframes/winter-v6.png' width='1672' height='941' decoding='async' alt='Тёмно-синяя вязаная шапка с молочными цветами над снежным гребнем в пасмурный день'>
+        <div class='scene__shade' aria-hidden='true'></div>
+      </section>
+    </div>
+
+    <!-- No source until an enabled manifest and a decoded target still permit playback. -->
+    <video class='pilot-video' muted playsinline preload='none' aria-hidden='true' disablepictureinpicture></video>
+    <div class='scene__shade pilot-video-shade' aria-hidden='true'></div>
+    <div class='scene__copy pilot-copy'>
+      <p class='scene__mood sr-only'>04 / Весна</p>
+      <h2 class='scene__title'>Пойдём раньше обычного</h2>
+      <p class='scene__text'>Серо-голубая хлопковая панама с мелкими цветами.</p>
+    </div>
+  </main>
+
+  <nav class='season-nav' aria-label='Сезоны пробного перелёта'>
+    <ul class='season-nav__list'>
+      <li><a class='season-nav__link' href='#spring' aria-current='true'>Весна</a></li>
+      <li><a class='season-nav__link' href='#winter'>Зима</a></li>
+    </ul>
+    <div class='pilot-actions'>
+      <button class='pilot-reset' type='button' aria-disabled='true'>Сначала</button>
+      <button class='next' type='button'><span class='next__label'>К зиме</span><span class='next__arrow' aria-hidden='true'>→</span></button>
+    </div>
+  </nav>
+  <p class='sr-only status' role='status' aria-live='polite' aria-atomic='true'></p>
+</div>
+<noscript><p class='pilot-noscript'>Для проверки плеера включите JavaScript. <a href='index.html'>Открыть все сезоны</a>.</p></noscript>
+</body>
+</html>

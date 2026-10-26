@@ -1,8 +1,20 @@
 import { createFlightAudio } from './pilot-audio.mjs';
 
 const missingClip = 'Ролик ещё не подключён';
-const photoFallback = 'Ролик недоступен — показана осенняя фотография.';
-const scrubFailure = 'Ролик не загрузился. Нажмите «К осени», чтобы открыть фотографию.';
+const flights = {
+  'winter-autumn': {
+    from: 'winter', to: 'autumn', next: 'К осени', arrived: 'Вы в осени',
+    photo: 'осенняя', toward: 'к осени', name: 'зима → осень', targetName: 'Осень',
+    manifest: 'assets/transitions/pilot-clip.json'
+  },
+  'spring-winter': {
+    from: 'spring', to: 'winter', next: 'К зиме', arrived: 'Вы в зиме',
+    photo: 'зимняя', toward: 'к зиме', name: 'весна → зима', targetName: 'Зима',
+    manifest: 'assets/transitions/spring-winter-clip.json'
+  }
+};
+const flightRoute = (id) => flights[id === 'spring-winter' ? id : 'winter-autumn'];
+
 const clamp = (value, low, high) => Math.min(high, Math.max(low, value));
 
 function clipPath(manifest) {
@@ -12,17 +24,21 @@ function clipPath(manifest) {
 }
 
 export function createPilotPlayer({
-  video, decodeImage, render, manifest = {}, initial = 'winter', onMotionChange = () => {},
+  video, decodeImage, render, manifest = {}, initial, flight = 'winter-autumn', onMotionChange = () => {},
   reducedMotion = () => false, isMobile = () => false,
   setTimeout: later = globalThis.setTimeout, clearTimeout: cancel = globalThis.clearTimeout,
   requestFrame = globalThis.requestAnimationFrame, cancelFrame = globalThis.cancelAnimationFrame
 }) {
+  const route = flightRoute(flight);
+  const { from, to } = route;
+  const photoFallback = `Ролик недоступен — показана ${route.photo} фотография.`;
+  const scrubFailure = `Ролик не загрузился. Нажмите «${route.next}», чтобы открыть фотографию.`;
   const src = clipPath(manifest);
-  let current = initial === 'autumn' ? 'autumn' : 'winter';
+  let current = initial === to ? to : from;
   let operation = null, navigated = false, clipFailed = false;
   let stopMedia = () => {};
   let lastMotion, snapshot;
-  let state = { current, still: current, phase: 'idle', mode: 'still', progress: current === 'autumn' ? 1 : 0,
+  let state = { current, still: current, phase: 'idle', mode: 'still', progress: current === to ? 1 : 0,
     time: 0, duration: 0, moving: false, videoVisible: false, captionHidden: false,
     error: false, status: src ? 'Готов к пробному перелёту' : missingClip };
   const emit = (changes = {}) => {
@@ -30,18 +46,18 @@ export function createPilotPlayer({
     snapshot = Object.freeze({ ...state,
       nextLabel: state.mode === 'auto' && state.phase === 'playing' ? 'Пропустить' :
         state.mode === 'scrub' && state.videoVisible && !state.error ? 'Продолжить полёт' :
-        current === 'autumn' && state.phase === 'idle' ? 'Вы в осени' : 'К осени',
-      nextDisabled: current === 'autumn' && state.phase === 'idle',
-      resetDisabled: current === 'winter' && state.phase === 'idle' && !clipFailed });
+        current === to && state.phase === 'idle' ? route.arrived : route.next,
+      nextDisabled: current === to && state.phase === 'idle',
+      resetDisabled: current === from && state.phase === 'idle' && !clipFailed });
     render(snapshot);
     if (lastMotion !== state.moving) { lastMotion = state.moving; onMotionChange(state.moving); }
   };
   const allowed = () => src && !clipFailed && !reducedMotion() && (!isMobile() || manifest.mobile_ready === true);
-  const stillStatus = () => src ? 'Показана осенняя фотография.' : missingClip;
+  const stillStatus = () => src ? `Показана ${route.photo} фотография.` : missingClip;
   const finish = (id, status) => {
     operation = null; current = id;
-    emit({ still: id, phase: 'idle', mode: 'still', moving: false, progress: id === 'autumn' ? 1 : 0,
-      time: id === 'autumn' ? state.duration : 0, videoVisible: false, captionHidden: false, error: false, status });
+    emit({ still: id, phase: 'idle', mode: 'still', moving: false, progress: id === to ? 1 : 0,
+      time: id === to ? state.duration : 0, videoVisible: false, captionHidden: false, error: false, status });
     stopMedia();
   };
 
@@ -60,12 +76,12 @@ export function createPilotPlayer({
     };
     const fail = () => {
       if (!live()) return;
-      if (op.mode === 'auto') { finish('autumn', photoFallback); return; }
+      if (op.mode === 'auto') { finish(to, photoFallback); return; }
       clipFailed = true; clearTimers(); clearFrames(); video.pause();
       if (state.videoVisible) {
         op.failed = true;
         emit({ phase: 'scrubbing', mode: 'scrub', moving: false, error: true,
-          status: 'Ролик остановился. Нажмите «К осени», чтобы открыть фотографию.' });
+          status: `Ролик остановился. Нажмите «${route.next}», чтобы открыть фотографию.` });
       } else {
         operation = null;
         emit({ phase: 'idle', mode: 'still', still: current, progress: 0, moving: false,
@@ -91,13 +107,13 @@ export function createPilotPlayer({
       cancel(loadTimer);
       const duration = Number.isFinite(video.duration) ? video.duration : 0;
       if (op.mode === 'scrub' && metadata && op.targetProgress >= 1 && time >= video.duration - 1 / 30 - .02) {
-        finish('autumn', 'Перелёт завершён.'); return;
+        finish(to, 'Перелёт завершён.'); return;
       }
       if (op.mode === 'scrub' && time > state.time + .001) quiet();
-      emit({ still: 'autumn', phase: op.mode === 'auto' ? 'playing' : 'scrubbing', mode: op.mode,
+      emit({ still: to, phase: op.mode === 'auto' ? 'playing' : 'scrubbing', mode: op.mode,
         time, duration, progress: duration > 0 ? clamp(time / duration, 0, 1) : 0,
         videoVisible: true, captionHidden: true, moving: op.mode === 'auto' || inputActive,
-        status: op.mode === 'auto' ? 'Пробный перелёт: зима → осень' : 'Камера под вашим управлением.' });
+        status: op.mode === 'auto' ? `Пробный перелёт: ${route.name}` : 'Камера под вашим управлением.' });
       if (op.mode === 'auto') watchdog();
       else if (!seekInFlight && !video.seeking) { cancel(progressTimer); progressTimer = null; }
       else if (progressTimer == null) watchdog();
@@ -146,7 +162,7 @@ export function createPilotPlayer({
       if (seekFrame != null) cancelFrame?.(seekFrame);
       seekFrame = null;
       emit({ mode: 'auto', phase: state.videoVisible ? 'playing' : 'loading', moving: false,
-        status: 'Продолжаем полёт к осени.' });
+        status: `Продолжаем полёт ${route.toward}.` });
       // The latest requested wheel position is retained even if metadata arrives later.
       if (op.targetProgress > 0) {
         if (!metadata || !canSeek(seekTime())) return;
@@ -204,7 +220,7 @@ export function createPilotPlayer({
       else watchFrame();
     });
     on('ended', () => {
-      if (live() && op.mode === 'auto') finish('autumn', state.videoVisible ? 'Перелёт завершён.' : photoFallback);
+      if (live() && op.mode === 'auto') finish(to, state.videoVisible ? 'Перелёт завершён.' : photoFallback);
     });
     for (const name of ['waiting', 'stalled']) on(name, () => {
       if (live()) emit({ moving: false }); // Do not renew the bounded progress deadline.
@@ -239,7 +255,7 @@ export function createPilotPlayer({
       if (op.mode !== 'still' && !op.skip && allowed()) {
         emit({ status: 'Подготавливаем ролик…' }); load(op);
       } else {
-        const status = id === 'winter' ? (src ? 'Готов к пробному перелёту' : missingClip) :
+        const status = id === from ? (src ? 'Готов к пробному перелёту' : missingClip) :
           !src ? missingClip : isMobile() && manifest.mobile_ready !== true ?
             'На телефоне показана фотография: кадрирование ролика ещё не проверено.' : stillStatus();
         finish(id, status);
@@ -257,12 +273,12 @@ export function createPilotPlayer({
     if (operation.decoded) finish(operation.id, stillStatus());
   };
   const go = (id) => {
-    if (id !== 'winter' && id !== 'autumn') return;
+    if (id !== from && id !== to) return;
     navigated = true;
-    if (id === 'winter') clipFailed = false;
+    if (id === from) clipFailed = false;
     if (id === current) {
       operation = null; stopMedia();
-      emit({ still: current, phase: 'idle', mode: 'still', progress: current === 'autumn' ? 1 : 0,
+      emit({ still: current, phase: 'idle', mode: 'still', progress: current === to ? 1 : 0,
         time: 0, moving: false, videoVisible: false, captionHidden: false,
         error: false, status: src ? 'Готов к пробному перелёту' : missingClip });
     } else begin(id);
@@ -283,10 +299,10 @@ export function createPilotPlayer({
         }
         return;
       }
-      if (current === 'winter') begin('autumn', keyboard ? 'still' : 'auto');
+      if (current === from) begin(to, keyboard ? 'still' : 'auto');
     },
     wheel(delta) {
-      if (!Number.isFinite(delta) || delta === 0 || !allowed() || current !== 'winter') return false;
+      if (!Number.isFinite(delta) || delta === 0 || !allowed() || current !== from) return false;
       if (operation) {
         if (operation.mode === 'still' || operation.failed) return false;
         if (operation.media) operation.media.wheel(delta);
@@ -298,11 +314,11 @@ export function createPilotPlayer({
         return true;
       }
       if (delta < 0) return false;
-      begin('autumn', 'scrub', clamp(delta / 1800, 0, 1));
+      begin(to, 'scrub', clamp(delta / 1800, 0, 1));
       return true;
     },
     getState: () => snapshot,
-    go, skip, reset: () => go('winter')
+    go, skip, reset: () => go(from)
   };
 }
 export function bindPilotControls({ player, next, reset, stage, links, document, window }) {
@@ -343,6 +359,8 @@ export function bindPilotControls({ player, next, reset, stage, links, document,
 
 
 async function mountPilot() {
+  const flight = document.body.dataset.flight;
+  const route = flightRoute(flight);
   const root = document.documentElement;
   const stage = document.querySelector('.stage');
   const video = document.querySelector('.pilot-video');
@@ -357,14 +375,14 @@ async function mountPilot() {
   const hint = document.querySelector('.pilot-hint__text');
   const mobileNote = document.querySelector('.pilot-mobile-note');
   const links = [...document.querySelectorAll('.season-nav__link')];
-  const scenes = new Map(['winter', 'autumn'].map((id) => [id, document.getElementById(id)]));
+  const scenes = new Map([route.from, route.to].map((id) => [id, document.getElementById(id)]));
   if (!stage || !video || !copy || !status || !next || !reset) return;
 
   let manifest = {};
   const abort = new AbortController();
   const manifestTimer = setTimeout(() => abort.abort(), 2000);
   try {
-    const response = await fetch('assets/transitions/pilot-clip.json', { cache: 'no-store', signal: abort.signal });
+    const response = await fetch(route.manifest, { cache: 'no-store', signal: abort.signal });
     if (response.ok) manifest = await response.json();
   } catch { /* A missing manifest is an honest still-only pilot. */ }
   clearTimeout(manifestTimer);
@@ -391,19 +409,20 @@ async function mountPilot() {
   };
   const captions = {
     winter: ['01 / Зима', 'Пойдём по снегу', 'Тёмно-синяя вязаная шапка-клош с\u00a0молочными цветами.'],
-    autumn: ['02 / Осень', 'Пойдём длинной дорогой', 'Фетровый клош кирпично-красного цвета.']
+    autumn: ['02 / Осень', 'Пойдём длинной дорогой', 'Фетровый клош кирпично-красного цвета.'],
+    spring: ['04 / Весна', 'Пойдём раньше обычного', 'Серо-голубая хлопковая панама с мелкими цветами.']
   };
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const phone = window.matchMedia('(max-width: 700px), (max-aspect-ratio: 4/5)');
   const updateMediaPolicy = () => document.body.classList.toggle('is-photo-only',
     !clipPath(manifest) || motion.matches || phone.matches && manifest.mobile_ready !== true);
   updateMediaPolicy();
-  const initial = location.hash === '#autumn' ? 'autumn' : 'winter';
+  const initial = location.hash === '#' + route.to ? route.to : route.from;
   const sound = bindFlightSound({ button: soundButton, audio: createFlightAudio({ src: 'assets/audio/flight-air.mp3' }) });
   let lastCurrent = initial;
   let lastPhase = 'idle';
   const player = createPilotPlayer({
-    video, manifest, initial, decodeImage, onMotionChange: sound.setMoving,
+    video, manifest, initial, flight, decodeImage, onMotionChange: sound.setMoving,
     reducedMotion: () => motion.matches,
     isMobile: () => phone.matches,
     render(state) {
@@ -431,13 +450,13 @@ async function mountPilot() {
       stage.dataset.progress = state.progress.toFixed(3);
       stage.dataset.moving = String(state.moving);
       const modeLabel = state.phase === 'loading' ? 'Подготовка' : state.mode === 'auto' ? 'Летим' :
-        state.mode === 'scrub' ? state.moving ? 'Двигаемся' : 'На паузе' : state.current === 'autumn' ? 'Осень' : 'На старте';
+        state.mode === 'scrub' ? state.moving ? 'Двигаемся' : 'На паузе' : state.current === route.to ? route.targetName : 'На старте';
       progress.textContent = modeLabel + ' · ' + Math.round(state.progress * 100) + '%';
-      hint.textContent = state.current === 'autumn' && state.phase === 'idle' ?
+      hint.textContent = state.current === route.to && state.phase === 'idle' ?
         'Нажмите «Сначала», чтобы повторить полёт.' : state.error ?
-        'Нажмите «К осени», чтобы открыть фотографию.' :
+        `Нажмите «${route.next}», чтобы открыть фотографию.` :
         clipPath(manifest) && !motion.matches && (!phone.matches || manifest.mobile_ready === true) ?
-        'Крутите колесо вперёд или нажмите «К осени».' : 'Нажмите «К осени», чтобы сменить фотографию.';
+        `Крутите колесо вперёд или нажмите «${route.next}».` : `Нажмите «${route.next}», чтобы сменить фотографию.`;
       links.forEach((link) => {
         if (link.hash === '#' + state.current) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');

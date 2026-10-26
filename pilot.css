@@ -70,7 +70,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .pilot-reset:hover:not([aria-disabled='true']) { color: #fff; }
-  .pilot .next[aria-disabled='true']:hover { background: var(--ivory); }
+  .pilot .next[aria-disabled='true']:hover { background: transparent; }
 }
 
 @media (max-width: 700px), (max-aspect-ratio: 4/5) {

@@ -1,0 +1,10 @@
+{
+  "id": "spring-winter",
+  "from": "spring",
+  "to": "winter",
+  "enabled": true,
+  "src": "assets/transitions/spring-winter-1440p.mp4",
+  "mobile_ready": false,
+  "start_image": "assets/keyframes/spring-v6.png",
+  "end_image": "assets/keyframes/winter-v6.png"
+}

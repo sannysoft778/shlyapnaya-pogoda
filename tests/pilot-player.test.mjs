@@ -4,6 +4,7 @@ import { createPilotPlayer, bindPilotControls, bindFlightSound } from '../pilot-
 
 const flush = () => new Promise(setImmediate);
 const enabled = { enabled: true, src: 'assets/transitions/winter-autumn.mp4', mobile_ready: false };
+const springWinter = { enabled: true, src: 'assets/transitions/spring-winter-1440p.mp4', mobile_ready: false };
 
 function deferred() {
   let resolve, reject;
@@ -85,6 +86,58 @@ function start(options = {}) {
   });
   return { player, video, time, target, state: () => snapshot, paint: () => frames.splice(0).forEach((fn) => fn()) };
 }
+
+test('spring-to-winter uses the spring source, winter target and spring reset', async () => {
+  const decoded = [];
+  const app = start({ flight: 'spring-winter', manifest: springWinter,
+    decodeImage: async (id) => { decoded.push(id); } });
+  assert.equal(app.state().current, 'spring');
+  assert.equal(app.state().nextLabel, 'К зиме');
+  app.player.next(); await flush();
+  assert.deepEqual(decoded, ['spring', 'winter']);
+  assert.deepEqual(app.video.network, ['assets/transitions/spring-winter-1440p.mp4']);
+  app.video.frame();
+  assert.equal(app.state().still, 'winter');
+  assert.equal(app.state().current, 'spring');
+  app.video.emit('ended');
+  assert.equal(app.state().current, 'winter');
+  assert.equal(app.state().nextDisabled, true);
+  app.player.reset(); await flush();
+  assert.equal(app.state().current, 'spring');
+  assert.equal(app.state().progress, 0);
+  assert.equal(app.video.src, '');
+});
+
+test('spring-to-winter wheel pauses at the displayed position and button continues to winter', async () => {
+  const app = start({ flight: 'spring-winter', manifest: springWinter, decodeImage: async () => {} });
+  assert.equal(app.player.wheel(450), true); await flush();
+  app.video.metadata(176 / 24); app.paint(); app.video.seeked(); app.video.frame(app.video.currentTime);
+  app.time.tick(120);
+  assert.equal(app.state().mode, 'scrub');
+  assert.equal(app.state().moving, false);
+  assert.equal(app.video.paused, true);
+  assert.equal(app.state().current, 'spring');
+  const position = app.video.currentTime;
+  app.player.next();
+  assert.equal(app.video.currentTime, position);
+  assert.equal(app.video.paused, false);
+  app.video.frame(position + .1); app.video.emit('ended');
+  assert.equal(app.state().current, 'winter');
+});
+
+test('spring-to-winter failure and reduced motion choose winter without autumn copy', async () => {
+  for (const reduce of [false, true]) {
+    const app = start({ flight: 'spring-winter', manifest: springWinter,
+      decodeImage: async () => {}, reducedMotion: () => reduce });
+    app.player.next(); await flush();
+    if (!reduce) app.video.emit('error');
+    assert.equal(app.state().current, 'winter');
+    assert.equal(app.state().videoVisible, false);
+    assert.match(app.state().status, /зим/);
+    assert.doesNotMatch(app.state().status, /осен/);
+    if (reduce) assert.deepEqual(app.video.network, []);
+  }
+});
 
 test('disabled manifest switches photos without requesting an absent movie', async () => {
   const app = start({ manifest: { enabled: false, src: null, mobile_ready: false } });
